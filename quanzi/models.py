@@ -58,7 +58,8 @@ class Message(models.Model):
     content = models.CharField(max_length=140)#内容
     datetime = models.DateField()#时间
     
-    
+
+  
     #def __unicode(self):
     
 #class Followship(models.Model):

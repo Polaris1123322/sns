@@ -13,14 +13,20 @@ Including another URLconf
     1. Add an import:  from blog import urls as blog_urls
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import include, url, patterns
+from django.conf.urls import include, url,patterns
 from django.contrib import admin
-from quanzi.views import index, login, register
+from sns import settings
+from quanzi.views import*
 
-urlpatterns = patterns('',
-    (r'^$', index),
-    (r'^login/$', login),
-    (r'^admin/', include(admin.site.urls)),
-    (r'^register/$', register),
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
+urlpatterns = patterns('',                   
+
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+    url(r'^quanzi/logout/$', 'quanzi.views.logout'),
+    url(r'^quanzi/login/$', 'quanzi.views.login'),
+    url(r'^quanzi/register/$', 'quanzi.views.register'),
+    url(r'^quanzi/index/$', 'quanzi.views.index'),
+    
 )
