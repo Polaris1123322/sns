@@ -7,16 +7,16 @@
 <meta name="keywords" content="Marital Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
+<link href="/static/css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
 <!-- Custom Theme files -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="/static/css/style.css" rel='stylesheet' type='text/css' />
 <link href='http://fonts.useso.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.useso.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
 <!----font-Awesome----->
-<link href="css/font-awesome.css" rel="stylesheet"> 
+<link href="/static/css/font-awesome.css" rel="stylesheet"> 
 <!----font-Awesome----->
 <script>
 $(document).ready(function(){
@@ -33,12 +33,11 @@ $(document).ready(function(){
 });
 </script>
 <style type="text/css">
-body,td,th, h1, h2, h3,h6 {font-family:Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif;} 
+body,td,th, h1, h2, h3 {font-family:Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif;} 
 </style>
 </head>
+<body><!-- ============================  Navigation Start =========================== -->
 <body>
-<!-- ============================  Navigation Start =========================== -->
- <body>
  <div class="navbar navbar-inverse-blue navbar">
     <!--<div class="navbar navbar-inverse-blue navbar-fixed-top">-->
       <div class="navbar-inner navbar-inner_1">
@@ -49,15 +48,15 @@ body,td,th, h1, h2, h3,h6 {font-family:Microsoft YaHei, Verdana, Arial, Helvetic
 				<li class="green">
 				  <a href="#" class="icon-home"></a>
 				  <ul>
-					<li><a href="login.html">登录</a></li>
-					<li><a href="register1.html">注册</a></li>
-					<li><a href="index.html">注销</a></li>
+					<li><a href="/quanzi/login/">登录</a></li>
+					<li><a href="/quanzi/register/">注册</a></li>
+					<li><a href="/quanzi/index/">注销</a></li>
 				  </ul>
 				</li>
 			   </ul>
              </nav>
            </div>
-           <a class="brand" href="index.html"><img src="images/logo4.png" alt="logo"></a>
+           <a class="brand" href="/quanzi/index/"><img src="/static/images/logo4.png" alt="logo"></a>
            <div class="pull-right">
           	<nav class="navbar nav_bottom" role="navigation">
  
@@ -74,25 +73,25 @@ body,td,th, h1, h2, h3,h6 {font-family:Microsoft YaHei, Verdana, Arial, Helvetic
 		   <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 		        <ul class="nav navbar-nav nav_1">
-		            <li><a href="index.html">主页</a></li>
+		            <li><a href="/quanzi/index/">主页</a></li>
 		    		<li class="dropdown">
 		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">圈子<span class="caret"></span></a>
 		              <ul class="dropdown-menu" role="menu">
-		                <li><a href="haoyoudongtai.html">好友动态</a></li>
-		                <li><a href="wodedongtai.html">我的动态</a></li>
+		                <li><a href="/quanzi/haoyoudongtai/">好友动态</a></li>
+		                <li><a href="/quanzi/wodedongtai/">我的动态</a></li>
 		              </ul>
 		            </li>
 					<li>
-		              <a href="news.html" class="dropdown-toggle" >新闻</a>
+		              <a href="/quanzi/news/" class="dropdown-toggle" >新闻</a>
 		            </li>
 		            <li class="dropdown">
 		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">关注<span class="caret"></span></a>
 		              <ul class="dropdown-menu" role="menu">
-		                <li><a href="friends.html">关注列表</a></li>
-		                <li><a href="new_friend1.html">找朋友</a></li>
+		                <li><a href="/quanzi/friends/">关注列表</a></li>
+		                <li><a href="/quanzi/new_friend/">找朋友</a></li>
 		              </ul>
 		            </li>
-		            <li class="last"><a href="me.html">我</a></li>
+		            <li class="last"><a href="/quanzi/me/">我</a></li>
 		        </ul>
 		     </div><!-- /.navbar-collapse -->
 		    </nav>
@@ -107,35 +106,36 @@ body,td,th, h1, h2, h3,h6 {font-family:Microsoft YaHei, Verdana, Arial, Helvetic
    
    <div class="col-md-9 members_box2">
        <div class="col_4">
-		    <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+		  <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
 			   <div id="myTabContent" class="tab-content">
 				  <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
 	                 <div class='clearfix'></div>
 					 
 	                <div class="jobs-item with-thumb">
 	                   <div class="thumb_top">
-				        <div class="thumb"><a href="view_profile.html"><img width="75" height="75" src="images/t2.jpg" class="img-responsive" alt=""/></a></div>
+				        <div class="thumb"><img width="75" height="75" src="/static/images/t2.jpg" class="img-responsive" alt=""/></div>
 					    <div class="jobs_right">
-							<h6 class="title"><a href="view_profile.html">话题</a></h6>
+							<h6 class="title"><a href="view_profile.html">话题{{title}}</a></h6>
 							<ul class="login_details1">
-							  <li>Last Login : 5 days ago</li>
+							  <li>发表时间 : {{news.datetime}}</li>
 							</ul>
-							<p>早餐吃了两个饼，阿姨饭给打多了，撑了，消化中</p>
+							<p>{{news.content}}</p>
 						</div>
 						<div class="clearfix"> </div>
 					   </div>
 					  
 				    </div>
 			     </div>
+				    {% for talk in talks %}
 					  <div class="jobs-item with-thumb">
 	                   <div class="thumb_top">
-				        <div class="thumb"><a href="view_profile.html"><img width="50" height="50" src="images/t1.jpg" class="img-responsive" alt=""/></a></div>
+				        <div class="thumb"><a href="view_profile.html"><img width="50" height="50" src="/static/images/t1.jpg" class="img-responsive" alt=""/></a></div>
 					    <div class="jobs_right">
-							<h6 class="title"><a href="view_profile.html">行云流水 (1楼)</a></h6>
+							<h6 class="title"><a href="view_profile.html"> {{talk.name}} ({{talk.number}}楼)</a></h6>
 							<ul class="login_details1">
-							  <li>Last Login : 5 days ago</li>
+							  <li>发表时间 : {{talk.talk1.datetime}}</li>
 							</ul>
-							<p>早餐吃了两个包子，饿死我了！</p>
+							<p> {{talk.talk1.content}}</p>
 						</div>
 						<div class="clearfix"> </div>
 					   </div>
@@ -144,74 +144,7 @@ body,td,th, h1, h2, h3,h6 {font-family:Microsoft YaHei, Verdana, Arial, Helvetic
 					   	  <div class="clearfix"> </div>
 					   </div>
 					  </div>
-					  <div class="jobs-item with-thumb">
-	                   <div class="thumb_top">
-				        <div class="thumb"><a href="view_profile.html"><img width="40" height="40" src="images/t3.jpg" class="img-responsive" alt=""/></a></div>
-					    <div class="jobs_right">
-							<h6 class="title"><a href="view_profile.html">天马行空 (2楼)</a></h6>
-							<ul class="login_details1">
-							  <li>Last Login : 5 days ago</li>
-							</ul>
-							<p>饭量不行</p>
-						</div>
-						<div class="clearfix"> </div>
-					   </div>
-					   <div class="thumb_bottom">
-					   	  <div class="thumb"><a href="#" class="photo_view">点赞</a></div>
-					   	  <div class="clearfix"> </div>
-					   </div>
-					  </div>
-					  <div class="jobs-item with-thumb">
-	                   <div class="thumb_top">
-				        <div class="thumb"><a href="view_profile.html"><img width="75" height="75" src="images/t4.jpg" class="img-responsive" alt=""/></a></div>
-					    <div class="jobs_right">
-							<h6 class="title"><a href="view_profile.html">蓝天白云 (3楼)</a></h6>
-							<ul class="login_details1">
-							  <li>Last Login : 5 days ago</li>
-							</ul>
-							<p>早上起床太晚，都没有吃早餐！</p>
-						</div>
-						<div class="clearfix"> </div>
-					   </div>
-					   <div class="thumb_bottom">
-					   	  <div class="thumb"><a href="view_profile.html" class="#">点赞</a></div>
-					   	  <div class="clearfix"> </div>
-					   </div>
-					  </div>
-					  <div class="jobs-item with-thumb">
-	                   <div class="thumb_top">
-				        <div class="thumb"><a href="view_profile.html"><img width="75" height="75" src="images/t5.jpg" class="img-responsive" alt=""/></a></div>
-					    <div class="jobs_right">
-							<h6 class="title"><a href="view_profile.html">快马 (4楼)</a></h6>
-							<ul class="login_details1">
-							  <li>Last Login : 5 days ago</li>
-							</ul>
-							<p>吃一个饼就撑得不行</p>
-						</div>
-						<div class="clearfix"> </div>
-					   </div>
-					   <div class="thumb_bottom">
-					   	  <div class="thumb"><a href="#" class="photo_view">点赞</a></div>
-					   	  <div class="clearfix"> </div>
-					   </div>
-					  </div>
-					  <div class="jobs-item with-thumb">
-	                   <div class="thumb_top">
-				        <div class="thumb"><a href="view_profile.html"><img width="75" height="75" src="images/t6.jpg" class="img-responsive" alt=""/></a></div>
-					    <div class="jobs_right">
-							<h6 class="title"><a href="view_profile.html">江湖（5楼）</a></h6>
-							<ul class="login_details1">
-							  <li>Last Login : 5 days ago</li>
-							</ul>
-							<p>一样一样</p>
-						</div>
-						<div class="clearfix"> </div>
-					   </div>
-					   <div class="thumb_bottom">
-					   	  <div class="thumb"><a href="#" class="photo_view">点赞</a></div>
-					   	  <div class="clearfix"> </div>
-					   </div>
-					  </div>
+					{% endfor %}
 				     <ul class="pagination pagination_1">
 				 	  <li class="active"><a href="#">1</a></li>
 				 	  <li><a href="#">2</a></li>
@@ -225,17 +158,19 @@ body,td,th, h1, h2, h3,h6 {font-family:Microsoft YaHei, Verdana, Arial, Helvetic
 			  </div>
 				 <br></br>
 				 <div class="profile_search1">
-				    <form>
-					  <label>发表点评论</label>
-					  <textarea rows="3" cols="100" name="comment">
-					</textarea>
-					  <input type="submit" value="发表">
-				   </form>
+				    <form method="post" name="new_dongtai">
+					<label>发表点评论：</label>
+					<textarea class="form-control" name="new_dongtai" required="true"></textarea>
+				  
+					<div class="buttons">
+							   <button type="submit" class="vertical">发布</button>
+					</div>
+	                </form
 			   </div>
 			 </div> 
 		  </div>
 	   </div>
-    </div>
+   </div>
    <div class="clearfix"> </div>
   </div>
 </div>

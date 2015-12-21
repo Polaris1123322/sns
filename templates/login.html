@@ -49,9 +49,9 @@ body,td,th {font-family:  Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif
 				<li class="green">
 				  <a href="#" class="icon-home"></a>
 				  <ul>
-					<li><a href="login.html">登录</a></li>
-					<li><a href="register1.html">注册</a></li>
-					<li><a href="index.html">注销</a></li>
+					<li><a href="/quanzi/login/">登录</a></li>
+					<li><a href="/quanzi/register/">注册</a></li>
+					<li><a href="/quanzi/logout/">注销</a></li>
 				  </ul>
 				</li>
 			   </ul>
@@ -114,7 +114,7 @@ body,td,th {font-family:  Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif
    <div class="services">
    	  <div class="col-sm-6 login_left">
 	   <form name="form_login" method="post" >
-        {% csrf_token %}
+      
   	    <div class="form-item form-type-textfield form-item-name">
 	      <label for="edit-name">邮箱 <span class="form-required" title="This field is required.">*</span></label>
 	      <input type="text" id="edit-name" name="email" size="60" maxlength="60" class="form-text required">

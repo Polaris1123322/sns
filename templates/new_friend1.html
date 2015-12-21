@@ -7,16 +7,16 @@
 <meta name="keywords" content="Marital Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
+<link href="/static/css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
 <!-- Custom Theme files -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="/static/css/style.css" rel='stylesheet' type='text/css' />
 <link href='http://fonts.useso.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.useso.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
 <!----font-Awesome----->
-<link href="css/font-awesome.css" rel="stylesheet"> 
+<link href="/static/css/font-awesome.css" rel="stylesheet"> 
 <!----font-Awesome----->
 <script>
 $(document).ready(function(){
@@ -32,11 +32,14 @@ $(document).ready(function(){
     );
 });
 </script>
+<style type="text/css">
+body,td,th, h1, h2, h3 {font-family:Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif;} 
+</style>
 </head>
+<body><!-- ============================  Navigation Start =========================== -->
 <body>
-<!-- ============================  Navigation Start =========================== -->
- <body>
-    <div class="navbar navbar-inverse-blue navbar">
+ <div class="navbar navbar-inverse-blue navbar">
+    <!--<div class="navbar navbar-inverse-blue navbar-fixed-top">-->
       <div class="navbar-inner navbar-inner_1">
         <div class="container">
            <div class="navigation">
@@ -45,15 +48,15 @@ $(document).ready(function(){
 				<li class="green">
 				  <a href="#" class="icon-home"></a>
 				  <ul>
-					<li><a href="login.html">登录</a></li>
-					<li><a href="register1.html">注册</a></li>
-					<li><a href="index.html">注销</a></li>
+					<li><a href="/quanzi/login/">登录</a></li>
+					<li><a href="/quanzi/register/">注册</a></li>
+					<li><a href="/quanzi/index/">注销</a></li>
 				  </ul>
 				</li>
 			   </ul>
              </nav>
            </div>
-           <a class="brand" href="index.html"><img src="images/logo4.png" alt="logo"></a>
+           <a class="brand" href="index.html"><img src="/static/head_images/logo4.png" alt="logo"></a>
            <div class="pull-right">
           	<nav class="navbar nav_bottom" role="navigation">
  
@@ -70,25 +73,25 @@ $(document).ready(function(){
 		   <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 		        <ul class="nav navbar-nav nav_1">
-		            <li><a href="index.html">主页</a></li>
+		            <li><a href="/quanzi/index/">主页</a></li>
 		    		<li class="dropdown">
 		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">圈子<span class="caret"></span></a>
 		              <ul class="dropdown-menu" role="menu">
-		                <li><a href="haoyoudongtai.html">好友动态</a></li>
-		                <li><a href="wodedongtai.html">我的动态</a></li>
+		                <li><a href="/quanzi/haoyoudongtai/">好友动态</a></li>
+		                <li><a href="/quanzi/wodedongtai/">我的动态</a></li>
 		              </ul>
 		            </li>
 					<li>
-		              <a href="news.html" class="dropdown-toggle" >新闻</a>
+		              <a href="/quanzi/news/" class="dropdown-toggle" >新闻</a>
 		            </li>
 		            <li class="dropdown">
 		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">关注<span class="caret"></span></a>
 		              <ul class="dropdown-menu" role="menu">
-		                <li><a href="friends.html">关注列表</a></li>
-		                <li><a href="new_friend1.html">找朋友</a></li>
+		                <li><a href="/quanzi/friends/">关注列表</a></li>
+		                <li><a href="/quanzi/new_friend/">找朋友</a></li>
 		              </ul>
 		            </li>
-		            <li class="last"><a href="me.html">我</a></li>
+		            <li class="last"><a href="/quanzi/me/">{{username}}</a></li>
 		        </ul>
 		     </div><!-- /.navbar-collapse -->
 		    </nav>
@@ -182,7 +185,7 @@ $(document).ready(function(){
     <div class="clearfix"> </div>
   </div>
   <div class="form_but1">
-	<label class="col-sm-5 control-lable1" for="sex">年龄 : </label>
+	<label class="col-sm-5 control-lable1" for="sex">生日 : </label>
 	<div class="col-sm-7 form_radios">
 	  <div class="col-sm-5 input-group1">
         <input class="form-control has-dark-background" name="28" id="slider-name" placeholder="28" type="text" required="">
@@ -197,6 +200,7 @@ $(document).ready(function(){
  </form>
  <div class="paid_people">
    <h1>可能认识的人</h1>
+   {% for people in peoples %}
    <div class="row_1">
 	   <div class="col-sm-6 paid_people-left">
 	 	<ul class="profile_item">
@@ -205,102 +209,21 @@ $(document).ready(function(){
 		   	  <img src="images/t1.jpg" class="img-responsive" alt=""/>
 		   </li>
 		   <li class="profile_item-desc">
-		   	  <h4>刘亦菲</h4>
-		   	  <p>行云流水</p>
-		   	  <h5>共同好友</h5>
-		   </li>
-		   <div class="clearfix"> </div>
-		  </a>
-	     </ul>
-	   </div>
-	   <div class="col-sm-6">
-	 	<ul class="profile_item">
-		  <a href="view_profile.html">
-		   <li class="profile_item-img">
-		   	  <img src="images/t2.jpg" class="img-responsive" alt=""/>
-		   </li>
-		   <li class="profile_item-desc">
-		   	  <h4>刘亦菲</h4>
-		   	  <p>行云流水</p>
-		   	  <h5>共同好友</h5>
-		   </li>
+			  <h4>{{people.name}}</h4>
+			  <p>{{people.signature}}</p>
+			  <h5>{{people.friend}}</h5>
+           </li>
 		   <div class="clearfix"> </div>
 		  </a>
 	     </ul>
 	   </div>
 	   <div class="clearfix"> </div>
    </div>
-   <div class="row_1">
-	   <div class="col-sm-6 paid_people-left">
-	 	<ul class="profile_item">
-		  <a href="view_profile.html">
-		   <li class="profile_item-img">
-		   	  <img src="images/t3.jpg" class="img-responsive" alt=""/>
-		   </li>
-		   <li class="profile_item-desc">
-		   	  <h4>刘亦菲</h4>
-		   	  <p>行云流水</p>
-		   	  <h5>共同好友</h5>
-		   </li>
-		   <div class="clearfix"> </div>
-		  </a>
-	     </ul>
-	   </div>
-	   <div class="col-sm-6">
-	 	<ul class="profile_item">
-		  <a href="view_profile.html">
-		   <li class="profile_item-img">
-		   	  <img src="images/t4.jpg" class="img-responsive" alt=""/>
-		   </li>
-		   <li class="profile_item-desc">
-		   	  <h4>刘亦菲</h4>
-		   	  <p>行云流水</p>
-		   	  <h5>共同好友</h5>
-		   </li>
-		   <div class="clearfix"> </div>
-		  </a>
-	     </ul>
-	   </div>
-	   <div class="clearfix"> </div>
-   </div>
-   <div class="row_2">
-	   <div class="col-sm-6 paid_people-left">
-	 	<ul class="profile_item">
-		  <a href="view_profile.html">
-		   <li class="profile_item-img">
-		   	  <img src="images/t5.jpg" class="img-responsive" alt=""/>
-		   </li>
-		   <li class="profile_item-desc">
-		   	  <h4>刘亦菲</h4>
-		   	  <p>行云流水</p>
-		   	  <h5>共同好友</h5>
-		   </li>
-		   <div class="clearfix"> </div>
-		  </a>
-	     </ul>
-	   </div>
-	   <div class="col-sm-6">
-	 	<ul class="profile_item">
-		  <a href="view_profile.html">
-		   <li class="profile_item-img">
-		   	  <img src="images/t6.jpg" class="img-responsive" alt=""/>
-		   </li>
-		   <li class="profile_item-desc">
-		   	  <h4>刘亦菲</h4>
-		   	  <p>行云流水</p>
-		   	  <h5>共同好友</h5>
-		   </li>
-		   <div class="clearfix"> </div>
-		  </a>
-	     </ul>
-	   </div>
-	   <div class="clearfix"> </div>
-    </div>
-  </div>
+   {% endfor %}
 </div>
 <div class="col-md-3 match_right">
 	<div class="profile_search1">
-	   <form>
+	   <form method="post" action="/quanzi/search_friend/">
 		  <input type="text" class="m_1" name="ne" size="30" required="" placeholder="输入用户名 :">
 		  <input type="submit" value="Go">
 	   </form>
@@ -309,81 +232,36 @@ $(document).ready(function(){
 	 <h3>风云人物</h3>
 	 <div class="flexslider">
 		<ul class="slides">
+		  {% for fpeople in fpeoples %}
 		  <li>
 			<img src="images/t7.jpg" alt=""/>
-			<h4>阿杜</h4>
-			<p>我的个性签名？我没有这种东西</p>
+			<h4>{{fpeople.name}}</h4>
+			<p>{{fpeople.signature}}</p>
 		  </li>
-		  <li>
-			<img src="images/t8.jpg" alt=""/>
-			<h4>萌姑娘</h4>
-			<p>这是一个很长的故事</p>
-		  </li>
-		  <li>
-			<img src="images/t5.jpg" alt=""/>
-			<h4>青春</h4>
-			<p>曾梦想仗剑走天涯</p>
-		  </li>
+		  {% endfor %}
 	    </ul>
 	  </div>
    </section>
    <div class="view_profile view_profile2">
-        	<ul class="profile_item">
+     {% for fpeople1 in fpeoples1 %}
+        <ul class="profile_item">
         	  <a href="view_profile.html">
         	   <li class="profile_item-img">
         	   	  <img src="images/t5.jpg" class="img-responsive" alt=""/>
         	   </li>
         	   <li class="profile_item-desc">
-        	   	  <h4>刘亦菲</h4>
-				  <p>行云流水</p>
-				  <h5>共同好友</h5>
+        	   	  <h4>{{fpeople1.name}}</h4>
+				  <p>{{fpeople1.signature}}</p>
+				  <h5>共同好友:{{fpeople1.friends}}</h5>
         	   </li>
         	   <div class="clearfix"> </div>
         	  </a>
            </ul>
-           <ul class="profile_item">
-        	  <a href="view_profile.html">
-        	   <li class="profile_item-img">
-        	   	  <img src="images/t6.jpg" class="img-responsive" alt=""/>
-        	   </li>
-        	   <li class="profile_item-desc">
-        	   	  <h4>刘亦菲</h4>
-				  <p>行云流水</p>
-				  <h5>共同好友</h5>
-        	   </li>
-        	   <div class="clearfix"> </div>
-        	  </a>
-           </ul>
-           <ul class="profile_item">
-        	  <a href="view_profile.html">
-        	   <li class="profile_item-img">
-        	   	  <img src="images/t8.jpg" class="img-responsive" alt=""/>
-        	   </li>
-        	   <li class="profile_item-desc">
-				  <h4>刘亦菲</h4>
-				  <p>行云流水</p>
-				  <h5>共同好友</h5>
-        	   </li>
-        	   <div class="clearfix"> </div>
-        	  </a>
-           </ul>
-           <ul class="profile_item">
-        	  <a href="view_profile.html">
-        	   <li class="profile_item-img">
-        	   	  <img src="images/t7.jpg" class="img-responsive" alt=""/>
-        	   </li>
-        	   <li class="profile_item-desc">
-        	   	  <h4>刘亦菲</h4>
-				  <p>行云流水</p>
-				  <h5>共同好友</h5>
-        	   </li>
-        	   <div class="clearfix"> </div>
-        	  </a>
-           </ul>
-       </div>
-     </div>
-     <div class="clearfix"> </div>
-  </div>
+	 {% endfor %}
+   </div>
+ </div>
+  <div class="clearfix"> </div>
+</div>
 </div>
 
  <div class="footer">

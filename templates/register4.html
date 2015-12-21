@@ -513,15 +513,15 @@ body,td,th, h1, h2, h3 {font-family:Microsoft YaHei, Verdana, Arial, Helvetica, 
 				<li class="green">
 				  <a href="#" class="icon-home"></a>
 				  <ul>
-					<li><a href="login">登录</a></li>
-					<li><a href="register">注册</a></li>
-					<li><a href="index">注销</a></li>
+					<li><a href="/quanzi/login/">登录</a></li>
+					<li><a href="/quanzi/register/">注册</a></li>
+					<li><a href="/quanzi/logout/">注销</a></li>
 				  </ul>
 				</li>
 			   </ul>
              </nav>
            </div>
-           <a class="brand" href="index.html"><img src="/static/images/logo4.png" alt="logo"></a>
+           <a class="brand" href="/quanzi/index/"><img src="/static/images/logo4.png" alt="logo"></a>
            <div class="pull-right">
           	<nav class="navbar nav_bottom" role="navigation">
  
@@ -556,7 +556,7 @@ body,td,th, h1, h2, h3 {font-family:Microsoft YaHei, Verdana, Arial, Helvetica, 
 		                <li><a href="/quanzi/new_friend/">找朋友</a></li>
 		              </ul>
 		            </li>
-		            <li class="last"><a href="/quanzi/me/">我</a></li>
+		            <li class="last"><a href="/quanzi/me/">{{username}}</a></li>
 		        </ul>
 		     </div><!-- /.navbar-collapse -->
 		    </nav>
@@ -577,18 +577,22 @@ body,td,th, h1, h2, h3 {font-family:Microsoft YaHei, Verdana, Arial, Helvetica, 
    </div>
    <div class="services">
    	  <div class="col-sm-6 login_left">
-	     <form class="form_reg" method="post">
+	     <form class="form_reg" enctype="multipart/form-data" method="post" >
 		    <div class="form-group">
 		      <label for="edit-name">邮箱 <span class="form-required" title="This field is required.">*</span></label>
 		      <input type="email" id="edit-name" name="email" value="" size="60" maxlength="60" class="form-text required">
 		    </div>
-                 <div class="form-group">
+              <div class="form-group">
 		      <label for="edit-name">用户名 <span class="form-required" title="This field is required.">*</span></label>
 		      <input type="text" id="edit-name" name="name" value="" size="60" maxlength="60" class="form-text required">
 		    </div>
               <div class="form-group">
 		      <label for="edit-pass">密码 <span class="form-required" title="This field is required.">*</span></label>
 		      <input type="password" id="edit-pass" name="pass" size="60" maxlength="128" class="form-text required">
+		    </div>
+			<div class="form-group">
+		      <label for="edit-name">头像 <span class="form-required" title="This field is required.">*</span></label>
+		      <input type="file" name = "pic" class="form-text required">
 		    </div>
 		    <div class="age_select">
 		      <label for="edit-pass">生日 <span class="form-required" title="This field is required.">*</span></label>

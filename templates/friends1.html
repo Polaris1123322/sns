@@ -7,16 +7,16 @@
 <meta name="keywords" content="Marital Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
+<link href="/static/css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
 <!-- Custom Theme files -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="/static/css/style.css" rel='stylesheet' type='text/css' />
 <link href='http://fonts.useso.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.useso.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
 <!----font-Awesome----->
-<link href="css/font-awesome.css" rel="stylesheet"> 
+<link href="/static/css/font-awesome.css" rel="stylesheet"> 
 <!----font-Awesome----->
 <script>
 $(document).ready(function(){
@@ -33,13 +33,13 @@ $(document).ready(function(){
 });
 </script>
 <style type="text/css">
-body,td,th {font-family:  Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif;} 
+body,td,th, h1, h2, h3 {font-family:Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif;} 
 </style>
 </head>
+<body><!-- ============================  Navigation Start =========================== -->
 <body>
-<!-- ============================  Navigation Start =========================== -->
- <body>
-    <div class="navbar navbar-inverse-blue navbar">
+ <div class="navbar navbar-inverse-blue navbar">
+    <!--<div class="navbar navbar-inverse-blue navbar-fixed-top">-->
       <div class="navbar-inner navbar-inner_1">
         <div class="container">
            <div class="navigation">
@@ -48,15 +48,15 @@ body,td,th {font-family:  Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif
 				<li class="green">
 				  <a href="#" class="icon-home"></a>
 				  <ul>
-					<li><a href="login.html">登录</a></li>
-					<li><a href="register1.html">注册</a></li>
-					<li><a href="index.html">注销</a></li>
+					<li><a href="/quanzi/login/">登录</a></li>
+					<li><a href="/quanzi/register/">注册</a></li>
+					<li><a href="/quanzi/logout/">注销</a></li>
 				  </ul>
 				</li>
 			   </ul>
              </nav>
            </div>
-           <a class="brand" href="index.html"><img src="images/logo4.png" alt="logo"></a>
+           <a class="brand" href="/quanzi/index/"><img src="/static/images/logo4.png" alt="logo"></a>
            <div class="pull-right">
           	<nav class="navbar nav_bottom" role="navigation">
  
@@ -73,25 +73,25 @@ body,td,th {font-family:  Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif
 		   <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 		        <ul class="nav navbar-nav nav_1">
-		            <li><a href="index.html">主页</a></li>
+		            <li><a href="/quanzi/index/">主页</a></li>
 		    		<li class="dropdown">
 		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">圈子<span class="caret"></span></a>
 		              <ul class="dropdown-menu" role="menu">
-		                <li><a href="haoyoudongtai.html">好友动态</a></li>
-		                <li><a href="wodedongtai.html">我的动态</a></li>
+		                <li><a href="/quanzi/haoyoudongtai/">好友动态</a></li>
+		                <li><a href="/quanzi/wodedongtai/">我的动态</a></li>
 		              </ul>
 		            </li>
 					<li>
-		              <a href="news.html" class="dropdown-toggle" >新闻</a>
+		              <a href="/quanzi/news/" class="dropdown-toggle" >新闻</a>
 		            </li>
 		            <li class="dropdown">
 		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">关注<span class="caret"></span></a>
 		              <ul class="dropdown-menu" role="menu">
-		                <li><a href="friends.html">关注列表</a></li>
-		                <li><a href="new_friend1.html">找朋友</a></li>
+		                <li><a href="/quanzi/friends/">关注列表</a></li>
+		                <li><a href="/quanzi/new_friend/">找朋友</a></li>
 		              </ul>
 		            </li>
-		            <li class="last"><a href="me.html">我</a></li>
+		            <li class="last"><a href="/quanzi/me/">{{username}}</a></li>
 		        </ul>
 		     </div><!-- /.navbar-collapse -->
 		    </nav>
@@ -122,35 +122,40 @@ body,td,th {font-family:  Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif
 		<div class="clearfix"> </div>
 	  </div>
 	 </form>
+	 {% for friend in friends %}
 	 <div class="profile_top"><a href="view_profile.html">
-      <h2>龙应台</h2>
+      <h2>{{friend.name}}</h2>
 	    <div class="col-sm-3 profile_left-top">
-	    	<img src="images/t3.jpg" class="img-responsive" alt=""/>
+	    	<img src="/static/head_images/{{friend.email}}.png" class="img-responsive" alt=""/>
 	    </div>
 	    <div class="col-sm-3">
 	      <ul class="login_details1">
-			 <li>上次登陆：5天前</li>
-			 <li><p>最新动态：不想被轻易打败</p></li>
+			 <li>上次登陆：{{friend.last_login}}</li>
+			 <li><p>最新动态：{{friend.dongtai}}</p></li>
 		  </ul>
 	    </div>
 	    <div class="col-sm-6">
 	    	<table class="table_working_hours">
 	        	<tbody>
 	        		<tr class="opened_1">
-						<td class="day_label1">年龄：</td>
-						<td class="day_value">22 </td>
+						<td class="day_label1">生日：</td>
+						<td class="day_value">{{friend.birthday}}</td>
 					</tr>
 				    <tr class="opened">
 						<td class="day_label1">单位: </td>
-						<td class="day_value">航天学院</td>
+						<td class="day_value">{{friend.school}}</td>
 					</tr>
 				    <tr class="opened">
 						<td class="day_label1">爱好: </td>
-						<td class="day_value">手绘</td>
+						<td class="day_value">{{friend.hobby}}</td>
 					</tr>
 					  <tr class="opened">
 						<td class="day_label1">性别: </td>
+						{% if friend.is_boy %}
+						<td class="day_value">男</td>
+						{% else %}
 						<td class="day_value">女</td>
+						{% endif %}
 					</tr>
 			    </tbody>
 		   </table>
@@ -161,123 +166,7 @@ body,td,th {font-family:  Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif
 	    </div>
 	    <div class="clearfix"> </div>
     </a></div>
-    <div class="profile_top"><a href="view_profile.html">
-      <h2>白雪</h2>
-	    <div class="col-sm-3 profile_left-top">
-	    	<img src="images/t7.jpg" class="img-responsive" alt=""/>
-	    </div>
-	    <div class="col-sm-3">
-	      <ul class="login_details1">
-			 <li>上次登陆：5天前</li>
-			 <li><p>最新动态：不想被轻易打败</p></li>
-		  </ul>
-	    </div>
-	    <div class="col-sm-6">
-	    	<table class="table_working_hours">
-	        	<tbody>
-	        		<tr class="opened_1">
-						<td class="day_label1">年龄：</td>
-						<td class="day_value">22 </td>
-					</tr>
-				    <tr class="opened">
-						<td class="day_label1">单位: </td>
-						<td class="day_value">航天学院</td>
-					</tr>
-				    <tr class="opened">
-						<td class="day_label1">爱好: </td>
-						<td class="day_value">手绘</td>
-					</tr>
-					 <tr class="opened">
-						<td class="day_label1">性别: </td>
-						<td class="day_value">女</td>
-					</tr>
-			    </tbody>
-		   </table>
-		   <div class="buttons">
-			   <div class="vertical">他的动态</div>
-			   <div class="vertical">留言</div>
-		   </div>
-	    </div>
-	    <div class="clearfix"> </div>
-    </a></div>
-    <div class="profile_top"><a href="view_profile.html">
-      <h2>刘颖</h2>
-	    <div class="col-sm-3 profile_left-top">
-	    	<img src="images/t2.jpg" class="img-responsive" alt=""/>
-	    </div>
-	    <div class="col-sm-3">
-	      <ul class="login_details1">
-			 <li>上次登陆：5天前</li>
-			 <li><p>最新动态：不想被轻易打败</p></li>
-		  </ul>
-	    </div>
-	    <div class="col-sm-6">
-	    	<table class="table_working_hours">
-	        	<tbody>
-	        		<tr class="opened_1">
-						<td class="day_label1">年龄：</td>
-						<td class="day_value">22 </td>
-					</tr>
-				    <tr class="opened">
-						<td class="day_label1">单位: </td>
-						<td class="day_value">航天学院</td>
-					</tr>
-				    <tr class="opened">
-						<td class="day_label1">爱好: </td>
-						<td class="day_value">手绘</td>
-					</tr>
-					 <tr class="opened">
-						<td class="day_label1">性别: </td>
-						<td class="day_value">女</td>
-					</tr>
-			    </tbody>
-		   </table>
-		   <div class="buttons">
-			   <div class="vertical">他的动态</div>
-			   <div class="vertical">留言</div>
-		   </div>
-	    </div>
-	    <div class="clearfix"> </div>
-    </a></div>
-    <div class="profile_top"><a href="view_profile.html">
-      <h2>小美</h2>
-	    <div class="col-sm-3 profile_left-top">
-	    	<img src="images/t8.jpg" class="img-responsive" alt=""/>
-	    </div>
-	    <div class="col-sm-3">
-	      <ul class="login_details1">
-			 <li>上次登陆：5天前</li>
-			 <li><p>最新动态：不想被轻易打败</p></li>
-		  </ul>
-	    </div>
-	    <div class="col-sm-6">
-	    	<table class="table_working_hours">
-	        	<tbody>
-	        		<tr class="opened_1">
-						<td class="day_label1">年龄：</td>
-						<td class="day_value">22 </td>
-					</tr>
-				    <tr class="opened">
-						<td class="day_label1">单位: </td>
-						<td class="day_value">航天学院</td>
-					</tr>
-				    <tr class="opened">
-						<td class="day_label1">爱好: </td>
-						<td class="day_value">手绘</td>
-					</tr>
-					 <tr class="opened">
-						<td class="day_label1">性别: </td>
-						<td class="day_value">女</td>
-					</tr>
-			    </tbody>
-		   </table>
-		   <div class="buttons">
-			   <div class="vertical">他的动态</div>
-			   <div class="vertical">留言</div>
-		   </div>
-	    </div>
-	    <div class="clearfix"> </div>
-    </a></div>
+	{% endfor %}
     <ul class="pagination">
  	  <li class="active"><a href="#">1</a></li>
  	  <li><a href="#">2</a></li>

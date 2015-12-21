@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
-
 from django.db import models
 
 class User(models.Model):
-    #用户类
     email = models.EmailField() #邮箱地址，可变，登陆用,不可为空
     name = models.CharField(max_length=20) #用户名，可变，不可为空
     pw = models.CharField(max_length=30)#密码，可变，不可为空
@@ -11,6 +9,7 @@ class User(models.Model):
     school = models.CharField(max_length=20)#学院，必填
     is_boy = models.BooleanField(blank=True)#性别
     last_login = models.DateTimeField(auto_now=True)#最后一次的登录时间
+    hobby = models.CharField(max_length=30)
     
     def __unicode__(self):
         return self.name
@@ -20,11 +19,11 @@ class Commend(models.Model):
     time = models.DateTimeField(auto_now = True)#评论的时间
     content = models.CharField(max_length=200, blank=False)#评论的内容
     Commender = models.ForeignKey('Commend', related_name='commender')#评论
-    
+   
 class Followship(models.Model):
     #关注关系类
     fans = models.ForeignKey(User, blank=True, null=True, related_name='fans')#粉丝
-    followed = models.ForeignKey(User, related_name='followed')#被关注的人
+    followed = models.ForeignKey(User, related_name='followed')#关注的人
     last_modified = models.DateTimeField(auto_now=True)#添加关注关系的时间
     def __unicode__(self):
         return u'%s 关注 %s'%(self.fans.name, self.followed.name)
@@ -34,6 +33,9 @@ class Share(models.Model):
     content = models.CharField(max_length=200, blank=False)#动态的内容
  #   praise = models.ManyToManyField(User, related_name='praise')
     praise_count = models.IntegerField(default = '0')#动态的赞数
+    datetime = models.DateTimeField(auto_now = True)#动态的报道时间
+    def __unicode__(self):
+        return self.host.name
 
 class News(models.Model):
     #新闻类
@@ -49,7 +51,8 @@ class Talk(models.Model):
     news_id = models.ForeignKey(News, related_name='news')#新闻的id
     auth = models.ForeignKey(User, related_name='author')#帖子的作者
     content = models.CharField(max_length=140)#内容
-    datetime= models.DateTimeField()#时间
+    datetime= models.DateTimeField(auto_now = True)#时间
+  
 
 class Message(models.Model):
     #留言类
@@ -58,18 +61,5 @@ class Message(models.Model):
     content = models.CharField(max_length=140)#内容
     datetime = models.DateField()#时间
     
-
-  
-    #def __unicode(self):
     
-#class Followship(models.Model):
-#    ID = models.AutoField(primary_key=True)
-#    last_modified = models.DateField(auto_now=True,editable=False)
-#    person_following = models.ManyToManyField(User)
-#    person_followed = models.ManyToManyField(User)
-#    
-#    def __unicode__(self):
-#        return str(self.following.name)+"关注"+str(self.followed.name)
-        
-    
-
+ 

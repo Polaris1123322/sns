@@ -1,22 +1,22 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>好友</title>
+<title>我</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Marital Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
+<link href="/static/css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
 <!-- Custom Theme files -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="/static/css/style.css" rel='stylesheet' type='text/css' />
 <link href='http://fonts.useso.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.useso.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
 <!----font-Awesome----->
-<link href="css/font-awesome.css" rel="stylesheet"> 
+<link href="/static/css/font-awesome.css" rel="stylesheet"> 
 <!----font-Awesome----->
 <script>
 $(document).ready(function(){
@@ -33,13 +33,13 @@ $(document).ready(function(){
 });
 </script>
 <style type="text/css">
-body,td,th {font-family:  Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif;} 
+body,td,th, h1, h2, h3 {font-family:Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif;} 
 </style>
 </head>
+<body><!-- ============================  Navigation Start =========================== -->
 <body>
-<!-- ============================  Navigation Start =========================== -->
- <body>
-    <div class="navbar navbar-inverse-blue navbar">
+ <div class="navbar navbar-inverse-blue navbar">
+    <!--<div class="navbar navbar-inverse-blue navbar-fixed-top">-->
       <div class="navbar-inner navbar-inner_1">
         <div class="container">
            <div class="navigation">
@@ -48,15 +48,15 @@ body,td,th {font-family:  Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif
 				<li class="green">
 				  <a href="#" class="icon-home"></a>
 				  <ul>
-					<li><a href="login.html">登录</a></li>
-					<li><a href="register1.html">注册</a></li>
-					<li><a href="index.html">注销</a></li>
+					<li><a href="/quanzi/login/">登录</a></li>
+					<li><a href="/quanzi/register/">注册</a></li>
+					<li><a href="/quanzi/logout/">注销</a></li>
 				  </ul>
 				</li>
 			   </ul>
              </nav>
            </div>
-           <a class="brand" href="index.html"><img src="images/logo4.png" alt="logo"></a>
+           <a class="brand" href="index.html"><img src="/static/images/logo4.png" alt="logo"></a>
            <div class="pull-right">
           	<nav class="navbar nav_bottom" role="navigation">
  
@@ -66,32 +66,29 @@ body,td,th {font-family:  Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif
 		        <span class="sr-only">Toggle navigation</span>
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		      </button>
-		      <a class="navbar-brand" href="#"></a>
-		   </div> 
+		        <span class="icon-bar"></span>		      </button>
+		      <a class="navbar-brand" href="#"></a>		   </div> 
 		   <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 		        <ul class="nav navbar-nav nav_1">
-		            <li><a href="index.html">主页</a></li>
+		            <li><a href="/quanzi/index/">主页</a></li>
 		    		<li class="dropdown">
 		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">圈子<span class="caret"></span></a>
 		              <ul class="dropdown-menu" role="menu">
-		                <li><a href="haoyoudongtai.html">好友动态</a></li>
-		                <li><a href="wodedongtai.html">我的动态</a></li>
+		                <li><a href="/quanzi/haoyoudongtai/">好友动态</a></li>
+		                <li><a href="/quanzi/wodedongtai/">我的动态</a></li>
 		              </ul>
 		            </li>
 					<li>
-		              <a href="news.html" class="dropdown-toggle" >新闻</a>
-		            </li>
+		              <a href="/quanzi/news/" class="dropdown-toggle" >新闻</a>		            </li>
 		            <li class="dropdown">
 		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">关注<span class="caret"></span></a>
 		              <ul class="dropdown-menu" role="menu">
-		                <li><a href="friends.html">关注列表</a></li>
-		                <li><a href="new_friend1.html">找朋友</a></li>
+		                <li><a href="/quanzi/friends/">关注列表</a></li>
+		                <li><a href="/quanzi/new_friend/">找朋友</a></li>
 		              </ul>
 		            </li>
-		            <li class="last"><a href="me.html">我</a></li>
+		            <li class="last"><a href="/quanzi/me/">{{username}}</a></li>
 		        </ul>
 		     </div><!-- /.navbar-collapse -->
 		    </nav>
@@ -99,7 +96,8 @@ body,td,th {font-family:  Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif
           <div class="clearfix"> </div>
         </div> <!-- end container -->
       </div> <!-- end navbar-inner -->
-    </div> <!-- end navbar-inverse-blue -->
+    </div> 
+ <!-- end navbar-inverse-blue -->
 <!-- ============================  Navigation End ============================ -->
 <div>
 <div class="grid_3">
@@ -113,34 +111,37 @@ body,td,th {font-family:  Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif
    </div>
    <div class="col-md-9 profile_left2">
 	 <div class="profile_top"><a href="view_profile.html">
-      <h2>龙应台</h2>
+      <h2>{{me.name}}</h2>
 	    <div class="col-sm-3 profile_left-top">
-	    	<img src="images/t3.jpg" class="img-responsive" alt=""/>
-	    </div>
+	    	<img src="/static/head_images/{{me.email}}.png" class="img-responsive" alt=""/>	    </div>
 	    <div class="col-sm-3">
 	      <ul class="login_details1">
-			 <li>上次登陆：5天前</li>
-			 <li><p>最新动态：不想被轻易打败</p></li>
+			 <li>上次登陆：{{me.last_login}}</li>
+			 <li><p>最新动态：{{dongtai}}</p></li>
 		  </ul>
 	    </div>
 	    <div class="col-sm-6">
 	    	<table class="table_working_hours">
 	        	<tbody>
 	        		<tr class="opened_1">
-						<td class="day_label1">年龄：</td>
-						<td class="day_value">22 </td>
+						<td class="day_label1">生日：</td>
+						<td class="day_value">{{me.birthday}}</td>
 					</tr>
 				    <tr class="opened">
 						<td class="day_label1">单位: </td>
-						<td class="day_value">航天学院</td>
+						<td class="day_value">{{me.school}}</td>
 					</tr>
 				    <tr class="opened">
 						<td class="day_label1">爱好: </td>
-						<td class="day_value">手绘</td>
+						<td class="day_value">{{me.hobby}}</td>
 					</tr>
 					  <tr class="opened">
-						<td class="day_label1">性别: </td>
+					    <td class="day_label1">性别: </td>
+						{% if friend.is_boy %}
 						<td class="day_value">男</td>
+						{% else %}
+						<td class="day_value">女</td>
+						{% endif %}
 					</tr>
 			    </tbody>
 		   </table>
@@ -151,111 +152,27 @@ body,td,th {font-family:  Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif
 	    </div>
 	    <div class="clearfix"> </div>
     </a></div>
-    </div>
+</div>
    <div class="grid_2">
 	<div class="container">
         <div class="row_1">
 	     <div class="col-md-8 suceess_story">
-	     <h2>留言板</h2>
+		 <h2>留言板</h2>
 	         <ul> 
+			   {% for message in messages %}
 			   <li>
 				  	<div class="suceess_story-date">
-						<span class="entry-1">Dec 20, 2015</span>
-					</div>
+						<span class="entry-1">Dec 20, 2015</span>					</div>
 					<div class="suceess_story-content-container">
 						<figure class="suceess_story-content-featured-image">
-						   <img width="75" height="75" src="images/t1.jpg" class="img-responsive" alt=""/>				            
-					    </figure>
+						   <img width="75" height="75" src="images/t1.jpg" class="img-responsive" alt=""/>					    </figure>
 						<div class="suceess_story-content-info">
-				        	<h4><a href="#">美男纸</a></h4>				        	
-				        	<p>加油。光棍节</p>
+				        	<h4><a href="#">{{message.formor.name}}</a></h4>				        	
+				        	<p>{{message.content}}</p>
 				        </div>
 				    </div>
-				</li>
-	            <li>
-				  	<div class="suceess_story-date">
-						<span class="entry-1">Dec 20, 2015</span>
-					</div>
-					<div class="suceess_story-content-container">
-						<figure class="suceess_story-content-featured-image">
-						   <img width="75" height="75" src="images/t2.jpg" class="img-responsive" alt=""/>				            
-					    </figure>
-						<div class="suceess_story-content-info">
-				        	<h4><a href="#">舒克和贝塔</a></h4>				        	
-				        	<p>欠我五块钱不用还了，过年就别再要压岁钱了</p>
-				        </div>
-				    </div>
-				</li>
-	            <li>
-				  	<div class="suceess_story-date">
-						<span class="entry-1">Dec 20, 2015</span>
-					</div>
-					<div class="suceess_story-content-container">
-						<figure class="suceess_story-content-featured-image">
-						   <img width="75" height="75" src="images/t3.jpg" class="img-responsive" alt=""/>				            
-					    </figure>
-						<div class="suceess_story-content-info">
-				        	<h4><a href="#">少年英雄老哪吒</a></h4>				        	
-				        	<p>今天我偷偷把你妈给你送来的饺子吃么了</p>
-				        </div>
-				    </div>
-				</li>
-	            <li>
-				  	<div class="suceess_story-date">
-						<span class="entry-1">Dec 20, 2015</span>
-					</div>
-					<div class="suceess_story-content-container">
-						<figure class="suceess_story-content-featured-image">
-						   <img width="75" height="75" src="images/t4.jpg" class="img-responsive" alt=""/>				            
-					    </figure>
-						<div class="suceess_story-content-info">
-				        	<h4><a href="#">断桥残雪</a></h4>				        	
-				        	<p>中午带饭</p>
-				        </div>
-				    </div>
-				</li>
-	            <li>
-				  	<div class="suceess_story-date">
-						<span class="entry-1">Dec 20, 2015</span>
-					</div>
-					<div class="suceess_story-content-container">
-						<figure class="suceess_story-content-featured-image">
-						   <img width="75" height="75" src="images/t5.jpg" class="img-responsive" alt=""/>				            
-					    </figure>
-						<div class="suceess_story-content-info">
-				        	<h4><a href="#">我就是我</a></h4>				        	
-				        	<p>陌生人，给个关注</p>
-				        </div>
-				    </div>
-				</li>
-	            <li>
-				  	<div class="suceess_story-date">
-						<span class="entry-1">Dec 20, 2015</span>
-					</div>
-					<div class="suceess_story-content-container">
-						<figure class="suceess_story-content-featured-image">
-						   <img width="75" height="75" src="images/t6.jpg" class="img-responsive" alt=""/>				            
-					    </figure>
-						<div class="suceess_story-content-info">
-				        	<h4><a href="#">天使的翅膀</a></h4>				        	
-				        	<p>呵呵</p>
-				        </div>
-				    </div>
-				</li>
-	            <li>
-				  	<div class="suceess_story-date">
-						<span class="entry-1">Dec 20, 2015</span>
-					</div>
-					<div class="suceess_story-content-container">
-						<figure class="suceess_story-content-featured-image">
-						   <img width="75" height="75" src="images/t7.jpg" class="img-responsive" alt=""/>				            
-					    </figure>
-						<div class="suceess_story-content-info">
-				        	<h4><a href="#">懒得理你</a></h4>				        	
-				        	<p>生日快乐</p>
-				        </div>
-				    </div>
-				</li>
+			   </li>
+			   {% endfor %}
 	        </ul>
 	    </div>
     </div>
@@ -294,6 +211,6 @@ body,td,th {font-family:  Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif
     		</div>
     		<div class="clearfix"> </div>
     	</div>
-    </div>
+</div>
 </body>
 </html>	

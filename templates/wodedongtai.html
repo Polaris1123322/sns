@@ -1,22 +1,22 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>好友</title>
+<title>好友动态</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Marital Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
+<link href="/static/css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
 <!-- Custom Theme files -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="/static/css/style.css" rel='stylesheet' type='text/css' />
 <link href='http://fonts.useso.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.useso.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
 <!----font-Awesome----->
-<link href="css/font-awesome.css" rel="stylesheet"> 
+<link href="/static/css/font-awesome.css" rel="stylesheet"> 
 <!----font-Awesome----->
 <script>
 $(document).ready(function(){
@@ -33,13 +33,13 @@ $(document).ready(function(){
 });
 </script>
 <style type="text/css">
-body,td,th {font-family:  Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif;} 
+body,td,th, h1, h2, h3 {font-family:Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif;} 
 </style>
 </head>
-
-<!-- ============================  Navigation Start =========================== -->
+<body><!-- ============================  Navigation Start =========================== -->
 <body>
-    <div class="navbar navbar-inverse-blue navbar">
+ <div class="navbar navbar-inverse-blue navbar">
+    <!--<div class="navbar navbar-inverse-blue navbar-fixed-top">-->
       <div class="navbar-inner navbar-inner_1">
         <div class="container">
            <div class="navigation">
@@ -48,15 +48,15 @@ body,td,th {font-family:  Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif
 				<li class="green">
 				  <a href="#" class="icon-home"></a>
 				  <ul>
-					<li><a href="login.html">登录</a></li>
-					<li><a href="register1.html">注册</a></li>
-					<li><a href="index.html">注销</a></li>
+					<li><a href="/quanzi/login/">登录</a></li>
+					<li><a href="/quanzi/register/">注册</a></li>
+					<li><a href="/quanzi/index/">注销</a></li>
 				  </ul>
 				</li>
 			   </ul>
              </nav>
            </div>
-           <a class="brand" href="index.html"><img src="images/logo4.png" alt="logo"></a>
+           <a class="brand" href="/quanzi/index/"><img src="/static/images/logo4.png" alt="logo"></a>
            <div class="pull-right">
           	<nav class="navbar nav_bottom" role="navigation">
  
@@ -73,25 +73,25 @@ body,td,th {font-family:  Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif
 		   <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 		        <ul class="nav navbar-nav nav_1">
-		            <li><a href="index.html">主页</a></li>
+		            <li><a href="/quanzi/index/">主页</a></li>
 		    		<li class="dropdown">
 		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">圈子<span class="caret"></span></a>
 		              <ul class="dropdown-menu" role="menu">
-		                <li><a href="haoyoudongtai.html">好友动态</a></li>
-		                <li><a href="wodedongtai.html">我的动态</a></li>
+		                <li><a href="/quanzi/haoyoudongtai/">好友动态</a></li>
+		                <li><a href="/quanzi/wodedongtai/">我的动态</a></li>
 		              </ul>
 		            </li>
 					<li>
-		              <a href="news.html" class="dropdown-toggle" >新闻</a>
+		              <a href="/quanzi/news/" class="dropdown-toggle" >新闻</a>
 		            </li>
 		            <li class="dropdown">
 		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">关注<span class="caret"></span></a>
 		              <ul class="dropdown-menu" role="menu">
-		                <li><a href="friends.html">关注列表</a></li>
-		                <li><a href="new_friend1.html">找朋友</a></li>
+		                <li><a href="/quanzi/friends/">关注列表</a></li>
+		                <li><a href="/quanzi/new_friend/">找朋友</a></li>
 		              </ul>
 		            </li>
-		            <li class="last"><a href="me.html">我</a></li>
+		            <li class="last"><a href="/quanzi/me/">{{username}}</a></li>
 		        </ul>
 		     </div><!-- /.navbar-collapse -->
 		    </nav>
@@ -106,190 +106,64 @@ body,td,th {font-family:  Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif
 <div class="grid_3">
   <div class="container">
   <div class="col-md-9 profile_left1">
-   <form>
+   <form method="post" name="new_dongtai">
    <label>正在发生的事</label>
-  <textarea class="form-control"></textarea>
-  </form>
-   <div class="buttons">
-			   <div class="vertical">发布</div>
+	<textarea class="form-control" name="new_dongtai" required="true"></textarea>
+  
+	<div class="buttons">
+			   <button type="submit" class="vertical">发布</button>
 	</div>
+	</form>
 	<br/>
 	<br/>
 	<div class="clearfix"> </div>
 	<div class="row_1">
 	     <div class="col-md-8 suceess_story">
 	         <ul> 
+				{% for dongtai in dongtais %}
 			   <li>
 				  	<div class="suceess_story-date">
-						<span class="entry-1">Dec 20, 2015</span>
+						<span class="entry-1">{{dongtai.dong.datetime}}</span>
 					</div>
 					<div class="suceess_story-content-container">
 						<figure class="suceess_story-content-featured-image">
-						   <img width="75" height="75" src="images/t3.jpg" class="img-responsive" alt=""/>				            
+						   <img width="75" height="75" src="/static/head_images/{{dongtai.email}}.png" class="img-responsive" alt=""/>				            
 					    </figure>
 						<div class="suceess_story-content-info">
-				        	<h4><a href="#">美男纸</a></h4>				        	
-				        	<p>早餐吃了两个饼，阿姨饭给打多了，撑了，消化中.<a href="#">More...</a></p>
+				        	<h4><a href="#">{{dongtai.name}}</a></h4>				        	
+				        	<p>{{dongtai.dong.content}}<p>
 				        </div>
 				    </div>
-				   
-				</li>
-	            <li>
-				  	<div class="suceess_story-date">
-						<span class="entry-1">Dec 20, 2015</span>
-					</div>
-					<div class="suceess_story-content-container">
-						<figure class="suceess_story-content-featured-image">
-						   <img width="75" height="75" src="images/t3.jpg" class="img-responsive" alt=""/>				            
-					    </figure>
-						<div class="suceess_story-content-info">
-				        	<h4><a href="#">美男纸</a></h4>				        	
-				        	<p>舒克就是舒克，开飞机的舒克，贝塔就是贝塔，开坦克的贝塔<a href="#">More...</a></p>
-				        </div>
+				    <div class="buttons">
+				    	<div class="vertical">赞{{dongtai.dong.praise_count}}</div>
+				    	<div class="vertical">删除</div>
 				    </div>
-				
-				</li>
-	            <li>
-				  	<div class="suceess_story-date">
-						<span class="entry-1">Dec 20, 2015</span>
-					</div>
-					<div class="suceess_story-content-container">
-						<figure class="suceess_story-content-featured-image">
-						   <img width="75" height="75" src="images/t3.jpg" class="img-responsive" alt=""/>				            
-					    </figure>
-						<div class="suceess_story-content-info">
-				        	<h4><a href="#">美男纸</a></h4>				        	
-				        	<p>法海，你不懂爱<a href="#">More...</a></p>
-				        </div>
-				    </div>
-				   
-				</li>
-	            <li>
-				  	<div class="suceess_story-date">
-						<span class="entry-1">Dec 20, 2015</span>
-					</div>
-					<div class="suceess_story-content-container">
-						<figure class="suceess_story-content-featured-image">
-						   <img width="75" height="75" src="images/t3.jpg" class="img-responsive" alt=""/>				            
-					    </figure>
-						<div class="suceess_story-content-info">
-				        	<h4><a href="#">美男纸</a></h4>				        	
-				        	<p>今天我没有上课，但是我一点都不觉得羞愧，别急着骂我呢，因为今天是星期六啊<a href="#">More...</a></p>
-				        </div>
-				    </div>
-				 
-				</li>
-	            <li>
-				  	<div class="suceess_story-date">
-						<span class="entry-1">Dec 20, 2015</span>
-					</div>
-					<div class="suceess_story-content-container">
-						<figure class="suceess_story-content-featured-image">
-						   <img width="75" height="75" src="images/t3.jpg" class="img-responsive" alt=""/>				            
-					    </figure>
-						<div class="suceess_story-content-info">
-				        	<h4><a href="#">美男纸</a></h4>				        	
-				        	<p>很伤心很伤心，光棍节我光棍了<a href="#">More...</a></p>
-				        </div>
-				    </div>
-				    
-				</li>
-	            <li>
-				  	<div class="suceess_story-date">
-						<span class="entry-1">Dec 20, 2015</span>
-					</div>
-					<div class="suceess_story-content-container">
-						<figure class="suceess_story-content-featured-image">
-						   <img width="75" height="75" src="images/t3.jpg" class="img-responsive" alt=""/>				            
-					    </figure>
-						<div class="suceess_story-content-info">
-				        	<h4><a href="#">美男纸</a></h4>				        	
-				        	<p>上课被老师点名叫了起来一个字也说不出来，不玩手机啦手机啦<a href="#">More...</a></p>
-				        </div>
-				    </div>
-				     
-				</li>
-	            <li>
-				  	<div class="suceess_story-date">
-						<span class="entry-1">Dec 20, 2015</span>
-					</div>
-					<div class="suceess_story-content-container">
-						<figure class="suceess_story-content-featured-image">
-						   <img width="75" height="75" src="images/t3.jpg" class="img-responsive" alt=""/>				            
-					    </figure>
-						<div class="suceess_story-content-info">
-				        	<h4><a href="#">美男纸</a></h4>				        	
-				        	<p>下午睡过去了，醒来还以为是第二天的早上。人生总是这么多错觉，让我莫名地慌了<a href="#">More...</a></p>
-				        </div>
-
-				    </div>
-				  
-				</li>
+				</li> 
+				{% endfor %}				
 	        </ul>
 	    </div>
 	    </div>
 <div class="col-md-4 match_right">
    <div class="view_profile view_profile2">
-        	<h4>我关注的：<a href="#">24</a></h4>
+        	<h4>我关注的：<a href="#">{{friends}}</a></h4>
         	<br/>
-        	<h4>关注我的：<a href="#">16</a></h4>
+        	<h4>关注我的：<a href="#">{{friendeds}}</a></h4>
         	<br/>
         	<h4>可能感兴趣的人</h4>
         	<div class="view_profile view_profile2">
-        	<ul class="profile_item">
-        	  <a href="view_profile.html">
-        	   <li class="profile_item-img">
-        	   	  <img src="images/t5.jpg" class="img-responsive" alt=""/>
-        	   </li>
-        	   <li class="profile_item-desc">
-        	   	  <h4>刘亦菲</h4>
-				  <p>行云流水</p>
-				  <h5>共同好友</h5>
-        	   </li>
-        	   <div class="clearfix"> </div>
-        	  </a>
-           </ul>
-           <ul class="profile_item">
-        	  <a href="view_profile.html">
-        	   <li class="profile_item-img">
-        	   	  <img src="images/t6.jpg" class="img-responsive" alt=""/>
-        	   </li>
-        	   <li class="profile_item-desc">
-        	   	  <h4>刘亦菲</h4>
-				  <p>行云流水</p>
-				  <h5>共同好友</h5>
-        	   </li>
-        	   <div class="clearfix"> </div>
-        	  </a>
-           </ul>
-           <ul class="profile_item">
-        	  <a href="view_profile.html">
-        	   <li class="profile_item-img">
-        	   	  <img src="images/t8.jpg" class="img-responsive" alt=""/>
-        	   </li>
-        	   <li class="profile_item-desc">
-				  <h4>刘亦菲</h4>
-				  <p>行云流水</p>
-				  <h5>共同好友</h5>
-        	   </li>
-        	   <div class="clearfix"> </div>
-        	  </a>
-           </ul>
-           <ul class="profile_item">
-        	  <a href="view_profile.html">
-        	   <li class="profile_item-img">
-        	   	  <img src="images/t7.jpg" class="img-responsive" alt=""/>
-        	   </li>
-        	   <li class="profile_item-desc">
-        	   	  <h4>刘亦菲</h4>
-				  <p>行云流水</p>
-				  <h5>共同好友</h5>
-        	   </li>
-        	   <div class="clearfix"> </div>
-        	  </a>
-           </ul>
-          
-   
+				{%for people in peoples%}
+			   <ul class="profile_item">
+				  <a href="view_profile.html">
+				   <li class="profile_item-img">
+					  <img src="/static/head_images/{{people.email}}.png" class="img-responsive" alt=""/>
+				   </li>
+				   <li class="profile_item-desc">
+					  <h4>{{people.name}}</h4>
+				   </li>
+				   <div class="clearfix"> </div>
+				  </a>
+			   </ul>
+				{%endfor%}
        </div>
      </div>
      <div class="clearfix"> </div>
@@ -297,6 +171,7 @@ body,td,th {font-family:  Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif
   </div>
 
 </div>
+        	
     <div class="footer">
     	<div class="container">
     		<div class="col-md-4 col_2">

@@ -56,7 +56,7 @@ body,td,th, h1, h2, h3 {font-family:Microsoft YaHei, Verdana, Arial, Helvetica, 
 			   </ul>
              </nav>
            </div>
-           <a class="brand" href="index.html"><img src="images/logo4.png" alt="logo"></a>
+           <a class="brand" href="/quanzi/index/"><img src="/static/images/logo4.png" alt="logo"></a>
            <div class="pull-right">
           	<nav class="navbar nav_bottom" role="navigation">
  
@@ -66,32 +66,29 @@ body,td,th, h1, h2, h3 {font-family:Microsoft YaHei, Verdana, Arial, Helvetica, 
 		        <span class="sr-only">Toggle navigation</span>
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		      </button>
-		      <a class="navbar-brand" href="#"></a>
-		   </div> 
+		        <span class="icon-bar"></span>		      </button>
+		      <a class="navbar-brand" href="#"></a>		   </div> 
 		   <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 		        <ul class="nav navbar-nav nav_1">
-		            <li><a href="index.html">主页</a></li>
+		            <li><a href="/quanzi/index/">主页</a></li>
 		    		<li class="dropdown">
 		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">圈子<span class="caret"></span></a>
 		              <ul class="dropdown-menu" role="menu">
-		                <li><a href="haoyoudongtai.html">好友动态</a></li>
-		                <li><a href="wodedongtai.html">我的动态</a></li>
+		                <li><a href="/quanzi/haoyoudongtai/">好友动态</a></li>
+		                <li><a href="/quanzi/wodedongtai/">我的动态</a></li>
 		              </ul>
 		            </li>
 					<li>
-		              <a href="news.html" class="dropdown-toggle" >新闻</a>
-		            </li>
+		              <a href="/quanzi/news/" class="dropdown-toggle" >新闻</a>		            </li>
 		            <li class="dropdown">
 		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">关注<span class="caret"></span></a>
 		              <ul class="dropdown-menu" role="menu">
-		                <li><a href="friends.html">关注列表</a></li>
-		                <li><a href="new_friend1.html">找朋友</a></li>
+		                <li><a href="/quanzi/friends/">关注列表</a></li>
+		                <li><a href="/quanzi/new_friend/">找朋友</a></li>
 		              </ul>
 		            </li>
-		            <li class="last"><a href="me.html">{{useremail}}</a></li>
+		            <li class="last"><a href="/quanzi/me/">{{username}}</a></li>
 		        </ul>
 		     </div><!-- /.navbar-collapse -->
 		    </nav>
@@ -99,14 +96,14 @@ body,td,th, h1, h2, h3 {font-family:Microsoft YaHei, Verdana, Arial, Helvetica, 
           <div class="clearfix"> </div>
         </div> <!-- end container -->
       </div> <!-- end navbar-inner -->
-    </div> <!-- end navbar-inverse-blue -->
+    </div> 
+ <!-- end navbar-inverse-blue -->
 <!-- ============================  Navigation End ============================ -->
-<div style="background-image:url('images/chenduling1.jpg');">
+<div style="background-image:url('/static/images/chenduling1.jpg');">
   <div class="container">
     <div class="banner_info">
       <h3>School Online</h3>
-      <a href="view_profile.html" class="hvr-shutter-out-horizontal">开启你的在线校园之旅</a>
-    </div>
+      <a href="view_profile.html" class="hvr-shutter-out-horizontal">开启你的在线校园之旅</a>    </div>
   </div>
   <div class="profile_search">
 
@@ -119,51 +116,17 @@ body,td,th, h1, h2, h3 {font-family:Microsoft YaHei, Verdana, Arial, Helvetica, 
 			<span class="grey-line"></span>
 			<i class="fa fa-heart pink-heart"></i>
 			<i class="fa fa-heart grey-heart"></i>
-			<span class="grey-line"></span>
-        </div>
+			<span class="grey-line"></span>        </div>
         <ul id="flexiselDemo3">
+		 {% for people in peoples %}
 	      <li><div class="col_1"><a href="me.html">
-			<img src="images/t17.jpg" alt="" class="hover-animation image-zoom-in img-responsive"/>
+			<img src="/static/images/t12.jpg" alt="" class="hover-animation image-zoom-in img-responsive"/>
              <div class="layer m_1 hidden-link hover-animation delay1 fade-in">
-                <div class="center-middle">About 他</div>
+                <div class="center-middle">About {{people.is_boy}}</div>
              </div>
-             <h3><span class="m_3">ID:微笑的人</span><br>机电学院</h3></a></div>
+             <h3><span class="m_3">ID:{{people.name}}</span><br>{{people.school}}</h3></a></div>
           </li>
-		  <li><div class="col_1"><a href="me.html">
-			<img src="images/t12.jpg" alt="" class="hover-animation image-zoom-in img-responsive"/>
-             <div class="layer m_1 hidden-link hover-animation delay1 fade-in">
-                <div class="center-middle">About 她</div>
-             </div>
-             <h3><span class="m_3">ID:心比雪冷</span><br>外国语学院</h3></a></div>
-          </li>
-		  <li><div class="col_1"><a href="me.html">
-			<img src="images/t13.jpg" alt="" class="hover-animation image-zoom-in img-responsive"/>
-             <div class="layer m_1 hidden-link hover-animation delay1 fade-in">
-                <div class="center-middle">About 他</div>
-             </div>
-             <h3><span class="m_3">ID:One Piece</span><br>计算机学院</h3></a></div>
-          </li>
-		  <li><div class="col_1"><a href="me.html">
-			<img src="images/t14.jpg" alt="" class="hover-animation image-zoom-in img-responsive"/>
-             <div class="layer m_1 hidden-link hover-animation delay1 fade-in">
-                <div class="center-middle">About 她</div>
-             </div>
-             <h3><span class="m_3">ID:花满楼</span><br>后勤集团</h3></a></div>
-          </li>
-		  <li><div class="col_1"><a href="me.html">
-			<img src="images/t15.jpg" alt="" class="hover-animation image-zoom-in img-responsive"/>
-             <div class="layer m_1 hidden-link hover-animation delay1 fade-in">
-                <div class="center-middle">About 他</div>
-             </div>
-             <h3><span class="m_3">ID:颜色不同的焰火</span><br>软件学院</h3></a></div>
-          </li>
-		  <li><div class="col_1"><a href="me.html">
-			<img src="images/t16.jpg" alt="" class="hover-animation image-zoom-in img-responsive"/>
-             <div class="layer m_1 hidden-link hover-animation delay1 fade-in">
-                <div class="center-middle">About 她</div>
-             </div>
-             <h3><span class="m_3">ID:没有翅膀也要飞翔</span><br>航天学院</h3></a></div>
-          </li>
+		 {% endfor %}
 	    </ul>
 	    <script type="text/javascript">
 		 $(window).load(function() {
@@ -192,7 +155,7 @@ body,td,th, h1, h2, h3 {font-family:Microsoft YaHei, Verdana, Arial, Helvetica, 
 		    
 		});
 	   </script>
-	   <script type="text/javascript" src="js/jquery.flexisel.js"></script>
+	   <script type="text/javascript" src="/static/js/jquery.flexisel.js"></script>
     </div>
 </div>
 <div class="grid_2">
@@ -202,177 +165,57 @@ body,td,th, h1, h2, h3 {font-family:Microsoft YaHei, Verdana, Arial, Helvetica, 
 			<span class="grey-line"></span>
 			<i class="fa fa-heart pink-heart"></i>
 			<i class="fa fa-heart grey-heart"></i>
-			<span class="grey-line"></span>
-        </div>
+			<span class="grey-line"></span>        </div>
         <div class="row_1">
 	     <div class="col-md-8 suceess_story">
 	         <ul> 
+			 {% for dongtai in dongtais %}
 			   <li>
 				  	<div class="suceess_story-date">
-						<span class="entry-1">Dec 20, 2015</span>
-					</div>
+						<span class="entry-1">{{dongtai.datetime}}</span>					</div>
 					<div class="suceess_story-content-container">
 						<figure class="suceess_story-content-featured-image">
-						   <img width="75" height="75" src="images/t1.jpg" class="img-responsive" alt=""/>				            
-					    </figure>
+						   <img width="75" height="75" src="/static/images/t1.jpg" class="img-responsive" alt=""/>					    </figure>
 						<div class="suceess_story-content-info">
-				        	<h4><a href="#">美男纸</a></h4>				        	
-				        	<p>早餐吃了两个饼，阿姨饭给打多了，撑了，消化中.<a href="#">More...</a></p>
+				        	<h4><a href="#">{{dongtai.host}}</a></h4>				        	
+				        	<p>{{dongtai.content}}</p>
 				        </div>
 				    </div>
-				</li>
-	            <li>
-				  	<div class="suceess_story-date">
-						<span class="entry-1">Dec 20, 2015</span>
-					</div>
-					<div class="suceess_story-content-container">
-						<figure class="suceess_story-content-featured-image">
-						   <img width="75" height="75" src="images/t2.jpg" class="img-responsive" alt=""/>				            
-					    </figure>
-						<div class="suceess_story-content-info">
-				        	<h4><a href="#">舒克和贝塔</a></h4>				        	
-				        	<p>舒克就是舒克，开飞机的舒克，贝塔就是贝塔，开坦克的贝塔<a href="#">More...</a></p>
-				        </div>
-				    </div>
-				</li>
-	            <li>
-				  	<div class="suceess_story-date">
-						<span class="entry-1">Dec 20, 2015</span>
-					</div>
-					<div class="suceess_story-content-container">
-						<figure class="suceess_story-content-featured-image">
-						   <img width="75" height="75" src="images/t3.jpg" class="img-responsive" alt=""/>				            
-					    </figure>
-						<div class="suceess_story-content-info">
-				        	<h4><a href="#">少年英雄老哪吒</a></h4>				        	
-				        	<p>法海，你不懂爱<a href="#">More...</a></p>
-				        </div>
-				    </div>
-				</li>
-	            <li>
-				  	<div class="suceess_story-date">
-						<span class="entry-1">Dec 20, 2015</span>
-					</div>
-					<div class="suceess_story-content-container">
-						<figure class="suceess_story-content-featured-image">
-						   <img width="75" height="75" src="images/t4.jpg" class="img-responsive" alt=""/>				            
-					    </figure>
-						<div class="suceess_story-content-info">
-				        	<h4><a href="#">断桥残雪</a></h4>				        	
-				        	<p>今天我没有上课，但是我一点都不觉得羞愧，别急着骂我呢，因为今天是星期六啊<a href="#">More...</a></p>
-				        </div>
-				    </div>
-				</li>
-	            <li>
-				  	<div class="suceess_story-date">
-						<span class="entry-1">Dec 20, 2015</span>
-					</div>
-					<div class="suceess_story-content-container">
-						<figure class="suceess_story-content-featured-image">
-						   <img width="75" height="75" src="images/t5.jpg" class="img-responsive" alt=""/>				            
-					    </figure>
-						<div class="suceess_story-content-info">
-				        	<h4><a href="#">我就是我</a></h4>				        	
-				        	<p>很伤心很伤心，光棍节我光棍了<a href="#">More...</a></p>
-				        </div>
-				    </div>
-				</li>
-	            <li>
-				  	<div class="suceess_story-date">
-						<span class="entry-1">Dec 20, 2015</span>
-					</div>
-					<div class="suceess_story-content-container">
-						<figure class="suceess_story-content-featured-image">
-						   <img width="75" height="75" src="images/t6.jpg" class="img-responsive" alt=""/>				            
-					    </figure>
-						<div class="suceess_story-content-info">
-				        	<h4><a href="#">天使的翅膀</a></h4>				        	
-				        	<p>上课被老师点名叫了起来一个字也说不出来，不玩手机啦手机啦<a href="#">More...</a></p>
-				        </div>
-				    </div>
-				</li>
-	            <li>
-				  	<div class="suceess_story-date">
-						<span class="entry-1">Dec 20, 2015</span>
-					</div>
-					<div class="suceess_story-content-container">
-						<figure class="suceess_story-content-featured-image">
-						   <img width="75" height="75" src="images/t7.jpg" class="img-responsive" alt=""/>				            
-					    </figure>
-						<div class="suceess_story-content-info">
-				        	<h4><a href="#">懒得理你</a></h4>				        	
-				        	<p>下午睡过去了，醒来还以为是第二天的早上。人生总是这么多错觉，让我莫名地慌了<a href="#">More...</a></p>
-				        </div>
-				    </div>
-				</li>
+			   </li>
+			 {% endfor %}
 	        </ul>
 	    </div>
 	    <div class="col-md-4 row_1-right">
 	      <h3>校园新闻</h3>
+		  {% for new in news %}
 	        <div class="box_1">
-		      <figure class="thumbnail1"><img width="170" height="155" src="images/n1.jpg" class="img-responsive" alt=""/></figure>
+		      <figure class="thumbnail1"><img width="170" height="155" src="/static/images/n1.jpg" class="img-responsive" alt=""/></figure>
 			  <div class="extra-wrap">
 				<div class="post-meta">
 					<span class="day">
-					<time datetime="2014-05-25T10:15:43+00:00">25</time>
+					<time datetime="2014-05-25T10:15:43+00:00">{{new.date}}</time>
 					</span>
 					<span class="month">
-					<time datetime="2014-05-25T10:11:51+00:00">May</time>
-					</span>
-				</div>
-				<h4 class="post-title"><a href="#">第130期名师小班行 ——王宏志老师走进1437301班</a></h4>
+					<time datetime="2014-05-25T10:11:51+00:00">{{new.month}}</time>
+					</span>				</div>
+				<h4 class="post-title"><a href="#">{{new.title}}</a></h4>
 				<div class="clearfix"> </div>
-				<div class="post-content">10月28日，正值哈尔滨寒风肆虐的时候，哈工大校园内，从致知楼里传来的一阵又一阵的掌声和欢笑声与这</div>
-				<a href="#" class="vertical">Read More</a>
-			  </div>
+				<div class="post-content">{{new.content}}</div>
+				<a href="#" class="vertical">Read More</a>			  </div>
 	        </div>
-	        <div class="box_1">
-		      <figure class="thumbnail1"><img width="170" height="155" src="images/n2.jpg" class="img-responsive" alt=""/></figure>
-			  <div class="extra-wrap">
-				<div class="post-meta">
-					<span class="day">
-					<time datetime="2014-05-25T10:15:43+00:00">25</time>
-					</span>
-					<span class="month">
-					<time datetime="2014-05-25T10:11:51+00:00">May</time>
-					</span>
-				</div>
-				<h4 class="post-title"><a href="#">计算机-软件学院团委2015“求是团校”方向课第三讲：如何做</a></h4>
-				<div class="clearfix"> </div>
-				<div class="post-content">1月8日晚7：00，计算机-软件学院团委2015“求是团校”方向课第三讲——《如何做</div>
-				<a href="#" class="vertical">Read More</a>
-			  </div>
-	        </div>
-	        <div class="box_2">
-		      <figure class="thumbnail1"><img width="170" height="155" src="images/n3.jpg" class="img-responsive" alt=""/></figure>
-			  <div class="extra-wrap">
-				<div class="post-meta">
-					<span class="day">
-					<time datetime="2014-05-25T10:15:43+00:00">25</time>
-					</span>
-					<span class="month">
-					<time datetime="2014-05-25T10:11:51+00:00">May</time>
-					</span>
-				</div>
-				<h4 class="post-title"><a href="#">基础学部青年志愿者协会“圆梦”计划动员大会顺利进行</a></h4>
-				<div class="clearfix"> </div>
-				<div class="post-content">2015年11月6日，基础学部青年志愿者协会“圆梦”计划动员大会在二校区主楼B31顺利进行。基</div>
-				<a href="#" class="vertical">Read More</a>
-			  </div>
-	        </div>
+	      {% endfor %}
 	        <div class="religion">
                <div class="religion_1-title">单位 :</div>
 			   <a href="#" target="_blank" class="religion_1" title="Hindu Matrimonial" style="padding-left:0px !important;">基础学部</a>
 			    <span>|</span><a href="#" target="_blank" class="religion_1" title="Muslim Matrimonial">航天学院</a>
 			 	<span>|</span><a href="#" target="_blank" class="religion_1" title="Christian Matrimonial">计算机学院</a>
 			 	<span>|</span><a href="#" target="_blank" class="religion_1" title="Sikh Matrimonial">机电学院</a>
-			 	<span>|</span><a href="#" target="_blank" class="religion_1" title="Inter Religion Matrimonial">教务处</a>
-	        </div>
+			 	<span>|</span><a href="#" target="_blank" class="religion_1" title="Inter Religion Matrimonial">教务处</a>	        </div>
 	     </div>
 	     <div class="clearfix"> </div>
 	   </div> 
-	  </div>
-    </div>
+  </div>
+</div>
     <div class="footer">
     	<div class="container">
     		<div class="col-md-4 col_2">

@@ -7,16 +7,16 @@
 <meta name="keywords" content="Marital Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href="css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
+<link href="/static/css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
 <!-- Custom Theme files -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="/static/css/style.css" rel='stylesheet' type='text/css' />
 <link href='http://fonts.useso.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.useso.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
 <!----font-Awesome----->
-<link href="css/font-awesome.css" rel="stylesheet"> 
+<link href="/static/css/font-awesome.css" rel="stylesheet"> 
 <!----font-Awesome----->
 <script>
 $(document).ready(function(){
@@ -32,10 +32,11 @@ $(document).ready(function(){
     );
 });
 </script>
+<style type="text/css">
+body,td,th, h1, h2, h3 {font-family:Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif;} 
+</style>
 </head>
-<center>
-<body leftmargin=100>
-<!-- ============================  Navigation Start =========================== -->
+<body><!-- ============================  Navigation Start =========================== -->
 <body>
  <div class="navbar navbar-inverse-blue navbar">
     <!--<div class="navbar navbar-inverse-blue navbar-fixed-top">-->
@@ -47,15 +48,15 @@ $(document).ready(function(){
 				<li class="green">
 				  <a href="#" class="icon-home"></a>
 				  <ul>
-					<li><a href="login.html">登录</a></li>
-					<li><a href="register1.html">注册</a></li>
-					<li><a href="index.html">注销</a></li>
+					<li><a href="/quanzi/login/">登录</a></li>
+					<li><a href="/quanzi/register/">注册</a></li>
+					<li><a href="/quanzi/logout/">注销</a></li>
 				  </ul>
 				</li>
 			   </ul>
              </nav>
            </div>
-           <a class="brand" href="index.html"><img src="images/logo4.png" alt="logo"></a>
+           <a class="brand" href="/quanzi/index/"><img src="/static/images/logo4.png" alt="logo"></a>
            <div class="pull-right">
           	<nav class="navbar nav_bottom" role="navigation">
  
@@ -72,25 +73,25 @@ $(document).ready(function(){
 		   <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 		        <ul class="nav navbar-nav nav_1">
-		            <li><a href="index.html">主页</a></li>
+		            <li><a href="/quanzi/index/">主页</a></li>
 		    		<li class="dropdown">
 		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">圈子<span class="caret"></span></a>
 		              <ul class="dropdown-menu" role="menu">
-		                <li><a href="haoyoudongtai.html">好友动态</a></li>
-		                <li><a href="wodedongtai.html">我的动态</a></li>
+		                <li><a href="/quanzi/haoyoudongtai/">好友动态</a></li>
+		                <li><a href="/quanzi/wodedongtai/">我的动态</a></li>
 		              </ul>
 		            </li>
 					<li>
-		              <a href="news.html" class="dropdown-toggle" >新闻</a>
+		              <a href="/quanzi/news/" class="dropdown-toggle" >新闻</a>
 		            </li>
 		            <li class="dropdown">
 		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">关注<span class="caret"></span></a>
 		              <ul class="dropdown-menu" role="menu">
-		                <li><a href="friends.html">关注列表</a></li>
-		                <li><a href="new_friend1.html">找朋友</a></li>
+		                <li><a href="/quanzi/friends/">关注列表</a></li>
+		                <li><a href="/quanzi/new_friend/">找朋友</a></li>
 		              </ul>
 		            </li>
-		            <li class="last"><a href="me.html">我</a></li>
+		            <li class="last"><a href="/quanzi/me/">{{username}}</a></li>
 		        </ul>
 		     </div><!-- /.navbar-collapse -->
 		    </nav>
@@ -101,109 +102,33 @@ $(document).ready(function(){
     </div> <!-- end navbar-inverse-blue -->
 <!-- ============================  Navigation End ============================ -->
 <div class="col-md-9 search_left" >
- <div class="topic" style="width: 800px; left: 10px; top: 10px;">
+ <div class="topic" style="width: 800px; left: 100px; top: 10px;">
+ <div class="container">
    <br></br>
-   <h1>热门话题</h1>
+   <h1 align="center">热门话题</h1>
+   {% for twonew in twonews %}
    <div class="row_1" >
+       {% for new in twonew %}
 	   <div class="col-sm-6 paid_people-left">
 	 	<ul class="profile_item">
-		  <a href="view_profile.html">
 		   <li class="profile_item-img">
-		   	  <img width="170" height="155" src="images/n3.jpg" class="img-responsive" alt=""/>
+		   	  <img width="170" height="155" src="/static/images/n3.jpg" class="img-responsive" alt=""/>
 		   </li>
 		   <li class="profile_item-desc">
-		   	  <h4 class="post-title"><a style="color:#0000FF; " href="comment.html">基础学部青年志愿者协会“圆梦”计划动员大会顺利进行</a></h4>
-		   	  <p>11月13日  13：00</p>
-		   	  <h5><a href="comment.html">参与讨论</a></h5>
+		   	  <h4 class="post-title"><a style="color:#0000FF; " href="/quanzi/comment/{{new.number}}/">{{new.content}}</a></h4>
+		   	  <p>发表时间：{{new.datetime}}</p>
+		   	  <h5><a href="/quanzi/comment/{{new.number}}/">参与讨论</a></h5>
 		   </li>
 		   <div class="clearfix"> </div>
-		  </a>
 	     </ul>
 	   </div>
-	   <div class="col-sm-6">
-	 	<ul class="profile_item">
-		  <a href="view_profile.html">
-		   <li class="profile_item-img">
-		   	  <img src="images/a6.jpg" class="img-responsive" alt=""/>
-		   </li>
-		   <li class="profile_item-desc">
-		   	  <h4 class="post-title"><a style="color:#0000FF" href="comment.html">早餐吃了两个饼，阿姨饭给打多了，撑了，消化中.</a></h4>
-		   	  <p>11月13日  13：30</p>
-		   	  <h5><a href="comment.html">参与讨论</a></h5>
-		   </li>
-		   <div class="clearfix"> </div>
-		  </a>
-	     </ul>
-	   </div>
+	   {% endfor %}
 	   <div class="clearfix"> </div>
+   
+   {% endfor %}
    </div>
-   <div class="row_1">
-	   <div class="col-sm-6 paid_people-left">
-	 	<ul class="profile_item">
-		  <a href="view_profile.html">
-		   <li class="profile_item-img">
-		   	  <img src="images/a7.jpg" class="img-responsive" alt=""/>
-		   </li>
-		   <li class="profile_item-desc">
-		   	  <h4 class="post-title"><a style="color:#0000FF" href="comment.html">舒克就是舒克，开飞机的舒克，贝塔就是贝塔，开坦克的贝塔.</a></h4>
-		   	  <p>11月13日  13：30</p>
-		   	  <h5><a href="comment.html">参与讨论</a></h5>
-		   </li>
-		   <div class="clearfix"> </div>
-		  </a>
-	     </ul>
-	   </div>
-	   <div class="col-sm-6">
-	 	<ul class="profile_item">
-		  <a href="view_profile.html">
-		   <li class="profile_item-img">
-		   	  <img src="images/a8.jpg" class="img-responsive" alt=""/>
-		   </li>
-		   <li class="profile_item-desc">
-		   	  <h4 class="post-title"><a style="color:#0000FF" href="comment.html">今天我没有上课，但是我一点都不觉得羞愧，别急着骂我呢，因为今天是星期六啊.</a></h4>
-		   	  <p>11月13日  13：30</p>
-		   	  <h5><a href="comment.html">参与讨论</a></h5>
-		   </li>
-		   <div class="clearfix"> </div>
-		  </a>
-	     </ul>
-	   </div>
-	   <div class="clearfix"> </div>
    </div>
-   <div class="row_2">
-	   <div class="col-sm-6 paid_people-left">
-	 	<ul class="profile_item">
-		  <a href="view_profile.html">
-		   <li class="profile_item-img">
-		   	  <img src="images/a5.jpg" class="img-responsive" alt=""/>
-		   </li>
-		   <li class="profile_item-desc">
-		   	  <h4 class="post-title"><a style="color:#0000FF" href="#">很伤心很伤心，光棍节我光棍了.</a></h4>
-		   	  <p>11月11日  13：30</p>
-		   	  <h5><a href="comment.html">参与讨论</a></h5>
-		   </li>
-		   <div class="clearfix"> </div>
-		  </a>
-	     </ul>
-	   </div>
-	   <div class="col-sm-6">
-	 	<ul class="profile_item">
-		  <a href="view_profile.html">
-		   <li class="profile_item-img">
-		   	  <img src="images/a4.jpg" class="img-responsive" alt=""/>
-		   </li>
-		   <li class="profile_item-desc">
-		   	  <h4 class="post-title"><a style="color:#0000FF" href="#">上课被老师点名叫了起来一个字也说不出来，不玩手机啦手机啦.</a></h4>
-		   	  <p>11月11日  13：30</p>
-		   	  <h5><a href="comment.html">参与讨论</a></h5>
-		   </li>
-		   <div class="clearfix"> </div>
-		  </a>
-	     </ul>
-	   </div>
-	   <div class="clearfix"> </div>
-    </div>
-  </div>
+ </div>
 </div>
 <br></br>
 <div class="footer">
