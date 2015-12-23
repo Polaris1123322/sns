@@ -18,7 +18,7 @@ class Commend(models.Model):
     share_id = models.ForeignKey('Share', related_name='share')#动态的id
     time = models.DateTimeField(auto_now = True)#评论的时间
     content = models.CharField(max_length=200, blank=False)#评论的内容
-    Commender = models.ForeignKey('Commend', related_name='commender')#评论
+    Commender = models.ForeignKey('User', related_name='commender')#评论
    
 class Followship(models.Model):
     #关注关系类
@@ -29,6 +29,7 @@ class Followship(models.Model):
         return u'%s 关注 %s'%(self.fans.name, self.followed.name)
 class Share(models.Model):
     #动态类
+    id = models.AutoField(primary_key=True)
     host = models.ForeignKey(User, related_name='host')#动态的分享者
     content = models.CharField(max_length=200, blank=False)#动态的内容
  #   praise = models.ManyToManyField(User, related_name='praise')
@@ -61,5 +62,8 @@ class Message(models.Model):
     content = models.CharField(max_length=140)#内容
     datetime = models.DateField()#时间
     
-    
+class Praise(models.Model):
+    praiser = models.ForeignKey(User, related_name='from+')#赞的人
+    praised = models.ForeignKey(Share, related_name='to')#赞的动态
+    edit_time = models.DateTimeField(auto_now=True)#编辑的时间
  

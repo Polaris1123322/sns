@@ -17,7 +17,7 @@ from django.conf.urls import include, url,patterns
 from django.contrib import admin
 from sns import settings
 from quanzi.views import *
-
+from quanzi.util import zan, ping, getcommends
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = patterns('',                   
@@ -41,5 +41,9 @@ urlpatterns = patterns('',
     url(r'^quanzi/search_friend/$', 'quanzi.views.search_friend'),
     url(r'^quanzi/insert_friends/$', 'quanzi.views.insert'),
   #  url(r'^quanzi/registeru/$', 'quanzi.views.register_user'),
-
+    url(r'^test/$', 'quanzi.views.test'),
+    url(r'^zan/$', 'quanzi.util.zan'),
+    url(r'^ping/$', 'quanzi.util.ping'),
+    url(r'^getcommends/$', 'quanzi.util.getcommends'),
+    url(r'^quanzi/message_center/$', 'quanzi.views.message_center'),
 )

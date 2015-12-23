@@ -15,29 +15,103 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="/static/css/style.css" rel='stylesheet' type='text/css' />
 <link href='http://fonts.useso.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.useso.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
-<!----font-Awesome----->
-<link href="/static/css/font-awesome.css" rel="stylesheet"> 
-<!----font-Awesome----->
-<script>
-$(document).ready(function(){
-    $(".dropdown").hover(            
-        function() {
-            $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
-            $(this).toggleClass('open');        
-        },
-        function() {
-            $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
-            $(this).toggleClass('open');       
-        }
-    );
-});
+<script language="javascript" type="text/javascript">
+ function chg (num){
+ var obj = "mydiv"+ num;
+  if(document.getElementById(obj).style.display=="none"){
+		 document.getElementById(obj).style.display="";
+	//var useremail = getUseremailCookie();
+		if (window.XMLHttpRequest)
+	  	{// code for IE7+, Firefox, Chrome, Opera, Safari
+		  	xmlhttp=new XMLHttpRequest();
+	  	}
+		else
+	  	{// code for IE6, IE5
+	  		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  	}
+	  	xmlhttp.onreadystatechange=function()
+	  	{
+		  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		    {
+				document.getElementById("commends"+num).innerHTML = xmlhttp.responseText;
+		    
+		    }
+	  	}
+	  	xmlhttp.open("GET", "/getcommends?share="+num, true);
+	  	xmlhttp.send();
+	}
+  else{
+  	document.getElementById(obj).style.display="none";
+  } 
+}
+function getUseremailCookie(){
+	var name = "useremail"
+　　var arr = document.cookie.match(new RegExp("(^| )"+name+"=([^;]*)(;|$)"));
+　　if(arr != null)　　
+　　　　return unescape(arr[2]);
+　　return null;
+}
+function zan(num)
+{
+var xmlhttp;
+//var useremail = getUseremailCookie();
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+ xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+		document.getElementById("praise"+num).innerHTML="赞"+xmlhttp.responseText;
+    
+    }
+ }
+xmlhttp.open("GET","/zan?share="+num,true);
+xmlhttp.send();
+}
+function ping(num)
+{
+	var xmlhttp;
+//var useremail = getUseremailCookie();
+	if (window.XMLHttpRequest)
+  	{// code for IE7+, Firefox, Chrome, Opera, Safari
+  		xmlhttp=new XMLHttpRequest();
+  	}
+	else
+  	{// code for IE6, IE5
+  		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  	}
+ 	xmlhttp.onreadystatechange=function()
+  	{
+  		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    	{
+			//document.getElementById("mydiv"+num).style.display="none";
+    		document.getElementById("ping_text"+num).value = "";
+    		document.getElementById("commends"+num).innerHTML = xmlhttp.responseText;
+    	}
+  	}
+	ping_text = document.getElementById("ping_text"+num).value;
+//xmlhttp.open("POST","/ping/",true);
+//xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+//xmlhttp.send("share="+num+"&ping="+ping_text);
+	if (ping_text != "")
+	{
+		xmlhttp.open("GET","/ping?share_id="+num+"&ping="+ping_text,true);
+		xmlhttp.send();
+	}
+	else
+	{
+		document.getElementById("mydiv"+num).style.display="none";
+    	document.getElementById("ping_text"+num).value = "";
+	}
+}
 </script>
-<style type="text/css">
-body,td,th, h1, h2, h3 {font-family:Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif;} 
-</style>
-</head>
-<body><!-- ============================  Navigation Start =========================== -->
-<body>
+<body >
  <div class="navbar navbar-inverse-blue navbar">
     <!--<div class="navbar navbar-inverse-blue navbar-fixed-top">-->
       <div class="navbar-inner navbar-inner_1">
@@ -123,8 +197,10 @@ body,td,th, h1, h2, h3 {font-family:Microsoft YaHei, Verdana, Arial, Helvetica, 
 				{% for dongtai in dongtais %}
 			   <li>
 				  	<div class="suceess_story-date">
-						<span class="entry-1">{{dongtai.dong.datetime}}</span>
+						<span class="entry-1">{{dongtai.dong.datetime}}
+						</span>
 					</div>
+
 					<div class="suceess_story-content-container">
 						<figure class="suceess_story-content-featured-image">
 						   <img width="75" height="75" src="/static/head_images/{{dongtai.email}}.png" class="img-responsive" alt=""/>				            
@@ -135,8 +211,14 @@ body,td,th, h1, h2, h3 {font-family:Microsoft YaHei, Verdana, Arial, Helvetica, 
 				        </div>
 				    </div>
 				    <div class="buttons">
-				    	<div class="vertical">赞{{dongtai.dong.praise_count}}</div>
-				    	<div class="vertical">评论</div>
+				    	<button id="praise{{ forloop.counter }}"class="vertical" onclick="zan({{ dongtai.dong.id }})">赞{{dongtai.dong.praise_count}}</button>
+				    	<button class="vertical" onclick="chg({{ forloop.counter }})">评论</button>
+				    	<div id="mydiv{{ forloop.counter }}" style="display:none;">
+				    	<div id="commends{{forloop.counter}}">
+				    	</div>
+						<textarea class="form-control" id="ping_text{{ forloop.counter }}" required="true"></textarea>
+						<input type="button" onclick="ping({{ forloop.counter }})"  value="提交" >
+						</div>
 				    </div>
 				</li> 
 				{% endfor %}				

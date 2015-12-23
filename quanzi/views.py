@@ -3,7 +3,8 @@ from django.shortcuts import render, render_to_response , RequestContext
 from django.template import Template, Context
 from  django.http import HttpResponse, HttpResponseRedirect
 from django.template.loader import get_template
-
+import json
+from util import setJsonGuanZhu
 from django.views.decorators.csrf import csrf_protect
 from quanzi_forms import RegisterForm
 from quanzi.models import *
@@ -35,6 +36,7 @@ def login(req):
         if(len(user) == 1 and user[0].pw == pw):
             response = HttpResponseRedirect('/quanzi/index/')
             response.set_cookie('useremail',user[0].email,3600)
+            user[0].save()
             return response
 
         else:
@@ -49,62 +51,62 @@ def logout(request):
     response.delete_cookie('useremail')
     return response 
 def haoyou(request):
-    try:
-        useremail = request.COOKIES.get('useremail')
-        username = User.objects.get(email = useremail).name
-        if request.method=="POST" :
-            new_share = Share()
-            new_share.host = User.objects.get(email=useremail)
-            new_share.content = request.POST['new_dongtai']
-            new_share.praise_count = 0
-            new_share.save()
+    #try:
+    useremail = request.COOKIES.get('useremail')
+    username = User.objects.get(email = useremail).name
+    if request.method=="POST" :
+        new_share = Share()
+        new_share.host = User.objects.get(email=useremail)
+        new_share.content = request.POST['new_dongtai']
+        new_share.praise_count = 0
+        new_share.save()
+       
+    
+    follows=Followship.objects.filter(fans__email=useremail)
+    friends=[]
+    for follow in follows:
         
+        friend=follow.followed
+        friends.append(friend)
+    fri_num=len(friends)
+    fri1_num=len(Followship.objects.filter(followed__email=useremail))
+    friends.append(User.objects.get(email=useremail))
+    dongtais = []
+    for friend in friends:
         
-        follows=Followship.objects.filter(fans__email=useremail)
-        friends=[]
-        for follow in follows:
-            
-            friend=follow.followed
-            friends.append(friend)
-        fri_num=len(friends)
-        fri1_num=len(Followship.objects.filter(followed__email=useremail))
-        friends.append(User.objects.get(email=useremail))
-        dongtais = []
-        for friend in friends:
-            
-            shares = Share.objects.filter(host__email = friend.email)
-            for share in shares:
-                dic = {}
-                dic['name'] = share.host.name
-                dic['email'] = str(share.host.email)
-                dic['dong'] = share
-                dongtais.append(dic)
-        users=User.objects.all()
-        user_list = []
-        for user in users:
-            if user.email != useremail:
-               user_list.append(user)
-        number=len(user_list)
-        #return HttpResponse(len(user_list))
-        people = []
-        if number <= 3:
-            people = user_list
-        else:
-            a=random.randrange(number)
-            people.append(user_list[a])
-            del user_list[a]
-            a=random.randrange(number-1)
-            people.append(user_list[a])
-            del user_list[a]
-            a=random.randrange(number-2)
-            people.append(user_list[a])
-            del user_list[a]
+        shares = Share.objects.filter(host__email = friend.email)
+        for share in shares:
+            dic = {}
+            dic['name'] = share.host.name
+            dic['email'] = str(share.host.email)
+            dic['dong'] = share
+            dongtais.append(dic)
+    users=User.objects.all()
+    user_list = []
+    for user in users:
+        if user.email != useremail:
+           user_list.append(user)
+    number=len(user_list)
+    #return HttpResponse(len(user_list))
+    people = []
+    if number <= 3:
+        people = user_list
+    else:
+        a=random.randrange(number)
+        people.append(user_list[a])
+        del user_list[a]
+        a=random.randrange(number-1)
+        people.append(user_list[a])
+        del user_list[a]
+        a=random.randrange(number-2)
+        people.append(user_list[a])
+        del user_list[a]
+    
+    return render_to_response('haoyoudongtai2.html',{'dongtais':dongtais,'friends':fri_num,\
+    'friendeds':fri1_num, 'peoples':user_list,'username':username })
         
-        return render_to_response('haoyoudongtai2.html',{'dongtais':dongtais,'friends':fri_num,\
-        'friendeds':fri1_num, 'peoples':user_list,'username':username })
-        
-    except:
-       return HttpResponseRedirect('/quanzi/login/')
+#    except:
+ #      return HttpResponseRedirect('/quanzi/login/')
 def myword(request):
     try:
         useremail = request.COOKIES.get('useremail')
@@ -274,11 +276,58 @@ def insert(req):
         follow=Followship()
         follow.fans=me
         follow.followed=user
+        setJsonGuanZhu(user, me)
         follow.save()
         response = HttpResponseRedirect('/quanzi/friends/')
         return response
     except:        
         response = HttpResponseRedirect('/quanzi/login/')
         return HttpResponse(response)
+def test(req):
+    return render_to_response('test.html',{})
+
+def message_center(req):
+    #try:
+    useremail = req.COOKIES.get('useremail')
+    path = "quanzi\static\messages\\"
+    fp = open(path+useremail+'.json', 'r')
+    #messages = json.load(fp)
+    messages = json.loads(fp.read())
+    fp.close()
+    message_list = []
+    if messages.has_key('zan'):
+        zans = messages['zan']
+        for zan in zans:
+            praiserName =User.objects.get(email=zan['praiserEmail']).name
+            content =Share.objects.get(id=zan['shareId']).content
+            time = zan['dateTime']
+            content = content.encode("utf-8") 
+            praiserName = praiserName.encode("utf-8")
+            message_list.append({'time':time, 'txt':praiserName+'赞了你的动态：'+content})
+    if messages.has_key('ping'):
+        pings = messages['ping']
+        for ping in pings:
+            pingerName =User.objects.get(email=ping['pingerEmail']).name
+            content =Share.objects.get(id=ping['shareId']).content
+            time = ping['dateTime']
+           
+            content = content.encode("utf-8") 
+            pingerName = pingerName.encode("utf-8")
+            ping_text = ping['ping_text'].encode("utf-8")
+            message_list.append({'time':time, 'txt':pingerName+'评论了你的动态：'+content+'"'+ping_text+'"'})
+    if messages.has_key('guanzhu'):
+        guanzhus = messages['guanzhu']
+        for guanzhu in guanzhus:
+            fansName =User.objects.get(email=guanzhu['fansEmail']).name
+            time = guanzhu['dateTime']
+          
+            fansName = fansName.encode("utf-8")
+            message_list.append({'time':time, 'txt':fansName+'关注了你'})
     
-        
+    
+    message_list = sorted(message_list, key=lambda x:x['time'], reverse=True)
+    #fp = open(path+useremail+'.json', 'w')
+    #fp.close()
+    return render_to_response('message_center.html', Context({'message_list':message_list, "len":len(message_list)}))
+    ##except:
+   #     return HttpResponse('没有消息')

@@ -1,0 +1,53 @@
+<html><!DOCTYPE html>
+<html>
+<head>
+<script>
+ function getCookie(name){
+　　var arr = document.cookie.match(new RegExp("(^| )"+name+"=([^;]*)(;|$)"));
+　　if(arr != null)　　　　
+　　　　return unescape(arr[2]);
+　　return null;
+}
+
+function loadXMLDoc()
+{
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("result").innerHTML=d;
+    
+
+    }
+  }
+a = document.getElementById("a").value;
+b = document.getElementById("b").value;
+d = getUseremailCookie();
+xmlhttp.open("GET","/add?a="+a+"&b="+b,true);
+xmlhttp.send();
+}
+</script>
+</head>
+<body>
+<div>
+<label>a</label>
+<input id="a"></input>
+</div>
+<hr/>
+<div>
+<form>
+<label>b<label>
+<input id="b"></input>
+</div>
+<input type="button" value="提交" onclick="loadXMLDoc()">
+<div id="result"></div>
+</body>
