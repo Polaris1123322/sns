@@ -211,13 +211,13 @@ function ping(num)
 				        </div>
 				    </div>
 				    <div class="buttons">
-				    	<button id="praise{{ forloop.counter }}"class="vertical" onclick="zan({{ dongtai.dong.id }})">赞{{dongtai.dong.praise_count}}</button>
-				    	<button class="vertical" onclick="chg({{ forloop.counter }})">评论</button>
-				    	<div id="mydiv{{ forloop.counter }}" style="display:none;">
-				    	<div id="commends{{forloop.counter}}">
+				    	<button id="praise{{ dongtai.dong.id }}"class="vertical" onclick="zan({{ dongtai.dong.id }})">赞{{dongtai.dong.praise_count}}</button>
+				    	<button class="vertical" onclick="chg({{dongtai.dong.id}})">评论</button>
+				    	<div id="mydiv{{ dongtai.dong.id }}" style="display:none;">
+				    	<div id="commends{{dongtai.dong.id}}">
 				    	</div>
-						<textarea class="form-control" id="ping_text{{ forloop.counter }}" required="true"></textarea>
-						<input type="button" onclick="ping({{ forloop.counter }})"  value="提交" >
+						<textarea class="form-control" id="ping_text{{ dongtai.dong.id }}" required="true"></textarea>
+						<input type="button" onclick="ping({{ dongtai.dong.id }})"  value="提交" >
 						</div>
 				    </div>
 				</li> 

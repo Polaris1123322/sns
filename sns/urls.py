@@ -17,7 +17,7 @@ from django.conf.urls import include, url,patterns
 from django.contrib import admin
 from sns import settings
 from quanzi.views import *
-from quanzi.util import zan, ping, getcommends
+from quanzi.util import zan, ping, getcommends, testWss, sendMessage
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = patterns('',                   
@@ -46,4 +46,6 @@ urlpatterns = patterns('',
     url(r'^ping/$', 'quanzi.util.ping'),
     url(r'^getcommends/$', 'quanzi.util.getcommends'),
     url(r'^quanzi/message_center/$', 'quanzi.views.message_center'),
+    url(r'^test/wss/$', 'quanzi.util.testWss'),
+    url(r'^send_message/$', 'quanzi.util.sendMessage'),
 )

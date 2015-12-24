@@ -16,15 +16,15 @@ def inbox(request):
     return render_to_response('index.html')
 def index(request):
    # return render_to_response('index.html', {})
-    try:
+#    try:
         
-        useremail = request.COOKIES.get('useremail')
-        username = User.objects.get(email = useremail).name
-        t = get_template('index.html')
-        html = t.render(Context({'username':username}))
-        return HttpResponse(html)
-    except:
-        return HttpResponseRedirect('/quanzi/login/')
+    useremail = request.COOKIES.get('useremail')
+    username = User.objects.get(email = useremail).name
+    t = get_template('index.html')
+    html = t.render(Context({'username':username}))
+    return HttpResponse(html)
+#    except:
+#        return HttpResponseRedirect('/quanzi/login/')
     
 def login(req):
     if req.method == 'POST':
@@ -190,6 +190,7 @@ def me(request):
     except:
         return HttpResponseRedirect('/quanzi/login/')
 def show_followeds(request):
+    #print 'hello'
     try:
         useremail = request.COOKIES['useremail']
         user = User.objects.get(email=useremail)

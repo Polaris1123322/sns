@@ -6,7 +6,44 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Marital Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script type="text/javascript" src="/static/js/jquery.js"></script>
+<script type="text/javascript" src="/static/js/public.js"></script>
+<link rel="stylesheet" href="/static/css/css.css" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+function getMessageNum(num)
+{
+  var xmlhttp;
+  if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+    }
+  else
+    {// code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+   xmlhttp.onreadystatechange=function()
+    {
+     if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+	      if(num==2)
+	      {
+	      	str = document.getElementById("message_center").innerHTML
+	      	if(str!=xmlhttp.responseText) 
+	      	{
+	      	wintq('新消息',1,2000,'');
+	      	}
+	      }
+         document.getElementById("message_center").innerHTML=xmlhttp.responseText;
+      }
+   }
+  xmlhttp.open("GET","/send_message/",true);
+  xmlhttp.send();
+  }
+  function Polling(){  
+      getMessageNum(1);  
+      setInterval("getMessageNum(2)", 3000);  
+}  
+</script>
 <link href="/static/css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="/static/js/jquery.min.js"></script>
@@ -37,7 +74,7 @@ body,td,th, h1, h2, h3 {font-family:Microsoft YaHei, Verdana, Arial, Helvetica, 
 </style>
 </head>
 <body><!-- ============================  Navigation Start =========================== -->
-<body>
+<body onLoad="Polling()">
  <div class="navbar navbar-inverse-blue navbar">
     <!--<div class="navbar navbar-inverse-blue navbar-fixed-top">-->
       <div class="navbar-inner navbar-inner_1">
@@ -88,6 +125,7 @@ body,td,th, h1, h2, h3 {font-family:Microsoft YaHei, Verdana, Arial, Helvetica, 
 		                <li><a href="/quanzi/new_friend/">找朋友</a></li>
 		              </ul>
 		            </li>
+		            <li><a href="#">消息中心 <a href="#" id="message_center" >0</a></li>
 		            <li class="last"><a href="/quanzi/me/">{{username}}</a></li>
 		        </ul>
 		     </div><!-- /.navbar-collapse -->

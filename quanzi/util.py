@@ -1,6 +1,6 @@
 
 # -*- coding: utf-8 -*-
-
+from django.shortcuts import render, render_to_response , RequestContext
 from  django.http import HttpResponse, HttpResponseRedirect
 from  models import Praise, User, Share, Commend
 from django.template import Template, Context
@@ -121,3 +121,39 @@ def setJsonGuanZhu(followed, fans):
     json.dump(message, fp)
     fp.close()
     return
+def sendMessage(req):
+    #try:
+    useremail = req.COOKIES.get('useremail')
+    path = "quanzi\static\messages\\"
+    fp = open(path+useremail+'.json', 'r')
+    messages = json.loads(fp.read())
+    fp.close()
+    num = 0
+    if messages.has_key('zan'):
+        num = num+len(messages['zan'])
+    if messages.has_key('guanzhu'):
+        num = num+len(messages['guanzhu'])
+    if messages.has_key('ping'):
+        num = num+len(messages['ping'])
+    return HttpResponse(str(num))
+#    except:
+#        return HttpResponse('0')
+
+
+#def sendMessage(req):
+#    
+#    #print 'hello'
+#   #message['Cache-Control'] = 'no-cache'
+#    current_time = time.strftime( ISOTIMEFORMAT, time.localtime() )
+#    
+#    #return HttpResponse("sb")
+#    message = HttpResponse()
+#    message['Content-Type']='text/event-stream'
+#    message['Cache-Control'] = 'no-cache'
+#    message.write(current_time)
+#    #message.flush()
+#    return message
+def testWss(req):
+    t = get_template('test_wss.html')
+    html = t.render(Context({}))
+    return HttpResponse(html)
