@@ -1,0 +1,225 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>留言板</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Marital Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="/static/css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery.js"></script>
+<script type="text/javascript" src="/static/js/public.js"></script>
+<link rel="stylesheet" href="/static/css/css.css" />
+
+<!-- Custom Theme files -->
+
+<link href="/static/css/style.css" rel='stylesheet' type='text/css' />
+<link href='http://fonts.useso.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.useso.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
+<!----font-Awesome----->
+<link href="/static/css/font-awesome.css" rel="stylesheet"> 
+<!----font-Awesome----->
+<script>
+function getMessageNum(num)
+{
+  var xmlhttp;
+  if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+    }
+  else
+    {// code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+   xmlhttp.onreadystatechange=function()
+    {
+     if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+          if(num==2)
+          {
+ str = document.getElementById("message_center").innerHTML
+if(str!=xmlhttp.responseText) 
+{
+wintq('新消息',1,2000,'');
+}
+}
+         document.getElementById("message_center").innerHTML=xmlhttp.responseText;
+      }
+   }
+  xmlhttp.open("GET","/send_message/",true);
+  xmlhttp.send();
+  }
+  function Polling(){  
+      getMessageNum(1);  
+      setInterval("getMessageNum(2)", 3000);  
+}  
+$(document).ready(function(){
+    $(".dropdown").hover(            
+        function() {
+            $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
+            $(this).toggleClass('open');        
+        },
+        function() {
+            $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
+            $(this).toggleClass('open');       
+        }
+    );
+});
+ function Polling(){  
+      getMessageNum(1);  
+      setInterval("getMessageNum(2)", 3000);  
+}  
+
+</script>
+<style type="text/css">
+body,td,th, h1, h2, h3 {font-family:Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif;} 
+</style>
+</head>
+<!-- ============================  Navigation Start =========================== -->
+<body onload="Polling()">
+
+ <div class="navbar navbar-inverse-blue navbar">
+    <!--<div class="navbar navbar-inverse-blue navbar-fixed-top">-->
+      <div class="navbar-inner navbar-inner_1">
+        <div class="container">
+           <div class="navigation">
+             <nav id="colorNav">
+			   <ul>
+				<li class="green">
+				  <a href="#" class="icon-home"></a>
+				  <ul>
+					<li><a href="/quanzi/login/">登录</a></li>
+					<li><a href="/quanzi/register/">注册</a></li>
+					<li><a href="/quanzi/logout/">注销</a></li>
+				  </ul>
+				</li>
+			   </ul>
+             </nav>
+           </div>
+           <a class="brand" href="/quanzi/index/"><img src="/static/images/logo4.png" alt="logo"></a>
+           <div class="pull-right">
+          	<nav class="navbar nav_bottom" role="navigation">
+ 
+		 <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header nav_2">
+		      <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">Menu
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>		      </button>
+		      <a class="navbar-brand" href="#"></a>		   </div> 
+		   <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+		        <ul class="nav navbar-nav nav_1">
+		            <li><a href="/quanzi/index/">主页</a></li>
+		    		<li class="dropdown">
+		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">圈子<span class="caret"></span></a>
+		              <ul class="dropdown-menu" role="menu">
+		                <li><a href="/quanzi/haoyoudongtai/">好友动态</a></li>
+		                <li><a href="/quanzi/wodedongtai/">我的动态</a></li>
+		              </ul>
+		            </li>
+					<li>
+		              <a href="/quanzi/news/" class="dropdown-toggle" >新闻</a>		            </li>
+		            <li class="dropdown">
+		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">关注<span class="caret"></span></a>
+		              <ul class="dropdown-menu" role="menu">
+		                <li><a href="/quanzi/friends/">关注列表</a></li>
+						<li><a href="/quanzi/fans/">粉丝列表</a></li>
+		                <li><a href="/quanzi/new_friend/">找朋友</a></li>
+		              </ul>
+		            </li>
+					 <li><a href="/quanzi/xiaoxi/">消息中心</a> <a href="/quanzi/xiaoxi/" id="message_center" >0</a></li>
+
+		            <li class="last"><a href="/quanzi/me/">{{username}}</a></li>
+		        </ul>
+		     </div><!-- /.navbar-collapse -->
+		    </nav>
+		   </div> <!-- end pull-right -->
+          <div class="clearfix"> </div>
+        </div> <!-- end container -->
+      </div> <!-- end navbar-inner -->
+    </div> 
+ <!-- end navbar-inverse-blue -->
+<!-- ============================  Navigation End ============================ -->
+<div>
+<div class="grid_3">
+  <div class="container">
+   <div class="col-md-9 profile_left2">
+	 <div class="profile_top"><a href="#">
+      <h2>{{friend.name}}</h2>
+	    <div class="col-sm-3 profile_left-top">
+	    	<img src="/static/head_images/{{friend.email}}.png" class="img-responsive" alt=""/>	    </div>
+   <div class="grid_2">
+	<div class="container">
+        <div class="row_1">
+	     <div class="col-md-8 suceess_story">
+		 <h2>留言板</h2>
+		 <form method="post" name="new_message" action="/quanzi/add_mes/?id={{friend.email}}">
+		   <label>发表留言</label>
+			<textarea class="form-control" name="new_message" required="true"></textarea>
+		  
+			<div class="buttons">
+					   <button type="submit" class="vertical">发表</button>
+			</div>
+		 </form>
+	         <ul> 
+			   {% for message in messages %}
+			   <li>
+				  	<div class="suceess_story-date">
+						<span class="entry-1">{{message.mes.datetime}}</span>					</div>
+					<div class="suceess_story-content-container">
+						<figure class="suceess_story-content-featured-image">
+						   <img width="75" height="75" src="/static/head_images/{{message.email}}.png" class="img-responsive" alt=""/>					    </figure>
+						<div class="suceess_story-content-info">
+				        	<h4><a href="#">{{message.name}}</a></h4>				        	
+				        	<p>{{message.mes.content}}</p>
+				        </div>
+				    </div>
+			   </li>
+			   {% endfor %}
+	        </ul>
+	    </div>
+    </div>
+   </div>
+   <div class="footer">
+    	<div class="container">
+    		<div class="col-md-4 col_2">
+    			<h4>我们</h4>
+    			<p>计算机学院工大圈子小组：安宜豪、张进、杨李杨</p>
+    		</div>
+    		<div class="col-md-2 col_2">
+    			<h4>帮助</h4>
+    			<ul class="footer_links">
+    				<li><a href="#">24x7 Live help</a></li>
+    				<li><a href="#">Contact us</a></li>
+    				<li><a href="#">Feedback</a></li>
+    				<li><a href="#">FAQs</a></li>
+    			</ul>
+    		</div>
+    		<div class="col-md-2 col_2">
+    			<h4>友链</h4>
+    			<ul class="footer_links">
+    				<li><a href="http://jwts.hit.edu.cn/">教务处</a></li>
+    				<li><a href="http://today.hit.edu.cn/">今日哈工大</a></li>
+    				<li><a href="#">校医院</a></li>
+    			</ul>
+    		</div>
+    		<div class="col-md-2 col_2">
+    			<h4>分享</h4>
+    			<ul class="footer_social">
+				  <li><a href="#"><i class="fa fa-facebook fa1"> </i></a></li>
+				  <li><a href="#"><i class="fa fa-twitter fa1"> </i></a></li>
+				  <li><a href="#"><i class="fa fa-google-plus fa1"> </i></a></li>
+				  <li><a href="#"><i class="fa fa-youtube fa1"> </i></a></li>
+			    </ul>
+    		</div>
+    		<div class="clearfix"> </div>
+    	</div>
+    </div>
+</body>
+</html>	

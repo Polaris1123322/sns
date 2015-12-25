@@ -1,0 +1,354 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>找朋友</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Marital Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="/static/css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery.js"></script>
+<script type="text/javascript" src="/static/js/public.js"></script>
+<link rel="stylesheet" href="/static/css/css.css" />
+
+<!-- Custom Theme files -->
+
+<link href="/static/css/style.css" rel='stylesheet' type='text/css' />
+<link href='http://fonts.useso.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.useso.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
+<!----font-Awesome----->
+<link href="/static/css/font-awesome.css" rel="stylesheet"> 
+<!----font-Awesome----->
+<script>
+function getMessageNum(num)
+{
+  var xmlhttp;
+  if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+    }
+  else
+    {// code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+   xmlhttp.onreadystatechange=function()
+    {
+     if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+          if(num==2)
+          {
+ str = document.getElementById("message_center").innerHTML
+if(str!=xmlhttp.responseText) 
+{
+wintq('新消息',1,2000,'');
+}
+}
+         document.getElementById("message_center").innerHTML=xmlhttp.responseText;
+      }
+   }
+  xmlhttp.open("GET","/send_message/",true);
+  xmlhttp.send();
+  }
+  function Polling(){  
+      getMessageNum(1);  
+      setInterval("getMessageNum(2)", 3000);  
+}  
+$(document).ready(function(){
+    $(".dropdown").hover(            
+        function() {
+            $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
+            $(this).toggleClass('open');        
+        },
+        function() {
+            $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
+            $(this).toggleClass('open');       
+        }
+    );
+});
+ function Polling(){  
+      getMessageNum(1);  
+      setInterval("getMessageNum(2)", 3000);  
+}  
+
+</script>
+<style type="text/css">
+body,td,th, h1, h2, h3 {font-family:Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif;} 
+</style>
+</head>
+<!-- ============================  Navigation Start =========================== -->
+<body onload="Polling()">
+
+ <div class="navbar navbar-inverse-blue navbar">
+    <!--<div class="navbar navbar-inverse-blue navbar-fixed-top">-->
+      <div class="navbar-inner navbar-inner_1">
+        <div class="container">
+           <div class="navigation">
+             <nav id="colorNav">
+			   <ul>
+				<li class="green">
+				  <a href="#" class="icon-home"></a>
+				  <ul>
+					<li><a href="/quanzi/login/">登录</a></li>
+					<li><a href="/quanzi/register/">注册</a></li>
+					<li><a href="/quanzi/logout/">注销</a></li>
+				  </ul>
+				</li>
+			   </ul>
+             </nav>
+           </div>
+           <a class="brand" href="/quanzi/index/"><img src="/static/images/logo4.png" alt="logo"></a>
+           <div class="pull-right">
+          	<nav class="navbar nav_bottom" role="navigation">
+ 
+		 <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header nav_2">
+		      <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">Menu
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>		      </button>
+		      <a class="navbar-brand" href="#"></a>		   </div> 
+		   <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+		        <ul class="nav navbar-nav nav_1">
+		            <li><a href="/quanzi/index/">主页</a></li>
+		    		<li class="dropdown">
+		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">圈子<span class="caret"></span></a>
+		              <ul class="dropdown-menu" role="menu">
+		                <li><a href="/quanzi/haoyoudongtai/">好友动态</a></li>
+		                <li><a href="/quanzi/wodedongtai/">我的动态</a></li>
+		              </ul>
+		            </li>
+					<li>
+		              <a href="/quanzi/news/" class="dropdown-toggle" >新闻</a>		            </li>
+		            <li class="dropdown">
+		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">关注<span class="caret"></span></a>
+		              <ul class="dropdown-menu" role="menu">
+		                <li><a href="/quanzi/friends/">关注列表</a></li>
+						<li><a href="/quanzi/fans/">粉丝列表</a></li>
+		                <li><a href="/quanzi/new_friend/">找朋友</a></li>
+		              </ul>
+		            </li>
+					 <li><a href="/quanzi/xiaoxi/">消息中心</a> <a href="/quanzi/xiaoxi/" id="message_center" >0</a></li>
+
+		            <li class="last"><a href="/quanzi/me/">{{username}}</a></li>
+		        </ul>
+		     </div><!-- /.navbar-collapse -->
+		    </nav>
+		   </div> <!-- end pull-right -->
+          <div class="clearfix"> </div>
+        </div> <!-- end container -->
+      </div> <!-- end navbar-inner -->
+    </div> 
+ <!-- end navbar-inverse-blue -->
+<!-- ============================  Navigation End ============================ -->
+<div class="grid_3">
+  <div class="container">
+   <div class="breadcrumb1">
+     <ul>
+        <a href="index.html"><i class="fa fa-home home_1"></i></a>
+        <span class="divider">&nbsp;|&nbsp;</span>
+        <li class="current-page">找朋友</li>
+     </ul>
+   </div>
+   <!--<script type="text/javascript">
+    $(function () {
+     $('#btnRadio').click(function () {
+          var checkedradio = $('[name="gr"]:radio:checked').val();
+          $("#sel").html("Selected Value: " + checkedradio);
+      });
+    });
+   </script>-->
+<div class="col-md-9 search_left">
+  <form method="post" action="/quanzi/searchm/">	
+<div class="form-group form-group1">
+		<label class="col-sm-7 control-lable" for="sex">性别 : </label>
+		<div class="col-sm-5">
+			<div class="radios">
+				<label for="radio-01" class="label_radio">
+					<input type="radio" name="gender" checked="true" value="True"> 男
+				</label>
+				<label for="radio-02" class="label_radio">
+					<input type="radio" name="gender" value="False"> 女
+				</label>
+			</div>
+		</div>
+		<div class="clearfix"> </div>
+	 </div>
+  <div class="form_but1">
+	<div class="school_select">
+			<label for="edit-pass"class="col-sm-5 control-lable1">学院</label>
+			<div class="col-sm-7 form_radios">
+			 <div class="select-block1">
+				<select name="school">
+					<option value="航天学院">航天学院</option>
+					<option value="机电学院">机电学院</option>
+					<option value="土木学院">土木学院</option>
+					<option value="电气学院">电气学院</option>
+					<option value="理学院">理学院</option>
+					<option value="计算机学院">计算机学院</option> 
+					<option value="软件学院">软件学院</option> 
+					<option value="材料学院">材料学院</option> 
+					<option value="化工学院">化工学院</option> 
+					<option value="生命学院">生命学院</option>
+				</select>
+			</div>
+			</div>
+			    <div class="clearfix"> </div>
+	</div>
+	</div>
+  <div class="form_but1">
+    <label class="col-sm-5 control-lable1" for="edit-pass2">上次登陆 : </label>
+    <div class="col-sm-7 form_radios">
+      <div class="select-block1">
+        <select name="time">
+            <option value="一分钟前">1分钟前</option>
+            <option value="一小时前">1小时前</option>
+            <option value="一天前">1天前</option>
+            <option value="三天前">3天前</option>
+            <option value="一周前">1周前</option> 
+            <option value="一月前">1月前</option> 
+        </select>
+      </div>
+    </div>
+    <div class="clearfix"> </div>
+  </div>
+  <div class="form_but1">
+    <label class="col-sm-5 control-lable1" for="edit-pass3">共同好友 : </label>
+    <div class="col-sm-7 form_radios">
+      <div class="select-block1">
+        <select name="num">
+            <option value="越多越好">越多越好</option>
+            <option value="越少越好">越少越好</option>
+            <option value="不介意">不介意</option> 
+        </select>
+      </div>
+    </div>
+    <div class="clearfix"> </div>
+  </div>
+  <div class="form_but1">
+	<label class="col-sm-5 control-lable1" for="sex">年龄 : </label>
+	<div class="col-sm-7 form_radios">
+	  <div class="col-sm-5 input-group1">
+        <input class="form-control has-dark-background" name="low" id="slider-name"  type="text" required="">
+      </div>
+      <div class="col-sm-5 input-group1">
+        <input class="form-control has-dark-background" name="high" id="slider-name"  type="text" required="">
+      </div>
+      <div class="clearfix"> </div>
+	</div>
+	<div class="clearfix"> </div>
+  </div>
+  <input type="submit" value="确定" class="btn_1 submit">
+ </form>
+ <div class="paid_people">
+   <h1>可能认识的人</h1>
+   {% for twopeople in peoples%}
+   <div class="row_1">
+	   <div class="col-sm-6 paid_people-left">
+	 	<ul class="profile_item">
+		  <a href="/quanzi/show/?id={{twopeople.email}}">
+		   <li class="profile_item-img">
+		   	  <img src="/static/head_images/{{twopeople.email}}.png"style="width:100px;height:100px;" class="img-responsive" alt=""/>
+		   </li>
+		   <li class="profile_item-desc">
+		   	  <h4>{{twopeople.name}}</h4>
+		   	  <p>{{twopeople.hobby}}</p>
+		   </li>
+		   <div class="clearfix"> </div>
+		  </a>
+	     </ul>
+	   </div>
+   </div>
+   {% endfor %}
+   
+  </div>
+</div>
+<div class="col-md-3 match_right">
+	<div class="profile_search1">
+	   <form method="post" action="/quanzi/search_friend/">
+		  <input type="text" class="m_1" name="ne" size="30" required="" placeholder="输入用户名 :">
+		  <input type="submit" value="Go">
+	   </form>
+   </div>
+   <section class="slider">
+	 <h3>风云人物</h3>
+	 <div class="flexslider">
+		<ul class="slides">
+		{% for fpeople in fpeoples %}
+		  <li>
+		    <a href="/quanzi/show/?id={{fpeople.email}}">
+			<img src="/static/head_images/{{fpeople.email}}.png " style="width:200px;height:200px;" alt=""/>
+			<h4>{{fpeople.name}}</h4>
+			<p>{{fpeople.hobby}}</p>
+			</a>
+		  </li>
+		  
+		  {% endfor %}
+	    </ul>
+	  </div>
+   </section>
+   
+     </div>
+     <div class="clearfix"> </div>
+  </div>
+</div>
+
+<div class="footer">
+    	<div class="container">
+    		<div class="col-md-4 col_2">
+    			<h4>我们</h4>
+    			<p>计算机学院工大圈子小组：安宜豪、张进、杨李杨</p>
+    		</div>
+    		<div class="col-md-2 col_2">
+    			<h4>帮助</h4>
+    			<ul class="footer_links">
+    				<li><a href="#">24x7 Live help</a></li>
+    				<li><a href="#">Contact us</a></li>
+    				<li><a href="#">Feedback</a></li>
+    				<li><a href="#">FAQs</a></li>
+    			</ul>
+    		</div>
+    		<div class="col-md-2 col_2">
+    			<h4>友链</h4>
+    			<ul class="footer_links">
+    				<li><a href="http://jwts.hit.edu.cn/">教务处</a></li>
+    				<li><a href="http://today.hit.edu.cn/">今日哈工大</a></li>
+    				<li><a href="#">校医院</a></li>
+    			</ul>
+    		</div>
+    		<div class="col-md-2 col_2">
+    			<h4>分享</h4>
+    			<ul class="footer_social">
+				  <li><a href="#"><i class="fa fa-facebook fa1"> </i></a></li>
+				  <li><a href="#"><i class="fa fa-twitter fa1"> </i></a></li>
+				  <li><a href="#"><i class="fa fa-google-plus fa1"> </i></a></li>
+				  <li><a href="#"><i class="fa fa-youtube fa1"> </i></a></li>
+			    </ul>
+    		</div>
+    		<div class="clearfix"> </div>
+    	</div>
+    </div>
+	<!-- FlexSlider -->
+<link href="/static/css/flexslider.css" rel='stylesheet' type='text/css' />
+  <script defer src="/static/js/jquery.flexslider.js"></script>
+  <script type="text/javascript">
+	$(function(){
+	  SyntaxHighlighter.all();
+	});
+	$(window).load(function(){
+	  $('.flexslider').flexslider({
+		animation: "slide",
+		start: function(slider){
+		  $('body').removeClass('loading');
+		}
+	  });
+	});
+  </script>
+<!-- FlexSlider -->
+</body>
+</html>	

@@ -9,7 +9,9 @@ class User(models.Model):
     school = models.CharField(max_length=20)#学院，必填
     is_boy = models.BooleanField(blank=True)#性别
     last_login = models.DateTimeField(auto_now=True)#最后一次的登录时间
-    hobby = models.CharField(max_length=30)
+    hobby = models.CharField(max_length=30,blank=True)
+    fansnum=models.IntegerField(default='0')
+    friendsnum=models.IntegerField(default='0')
     
     def __unicode__(self):
         return self.name
@@ -29,7 +31,7 @@ class Followship(models.Model):
         return u'%s 关注 %s'%(self.fans.name, self.followed.name)
 class Share(models.Model):
     #动态类
-    id = models.AutoField(primary_key=True)
+    id=models.AutoField(primary_key=True)
     host = models.ForeignKey(User, related_name='host')#动态的分享者
     content = models.CharField(max_length=200, blank=False)#动态的内容
  #   praise = models.ManyToManyField(User, related_name='praise')
@@ -41,11 +43,11 @@ class Share(models.Model):
 class News(models.Model):
     #新闻类
     title = models.CharField(max_length=50)#新闻的标题
-    praise_count = models.IntegerField(default='0')#新闻的推荐书目
-    number = models.IntegerField(blank=False, null=False)#新闻的编号
-    content = models.CharField(max_length = 500)#新闻的内容（首段）
-    datetime = models.DateTimeField()#新闻的报道时间
-    padate = models.DateTimeField()#新闻的摘录时间
+    # praise_count = models.IntegerField(default='0')#新闻的推荐书目
+    number = models.CharField(max_length=30,blank=False, null=False)#新闻的编号
+    content = models.TextField(max_length = 4000)#新闻的内容（首段）
+    # datetime = models.DateTimeField()#新闻的报道时间
+    # padate = models.DateTimeField()#新闻的摘录时间
 
 class Talk(models.Model):
     #讨论类
@@ -60,10 +62,10 @@ class Message(models.Model):
     fromer = models.ForeignKey(User, related_name='fromer')#留言者
     toer = models.ForeignKey(User, related_name='toer')#被留言者
     content = models.CharField(max_length=140)#内容
-    datetime = models.DateField()#时间
-    
+    datetime = models.DateField(auto_now = True)#时间
 class Praise(models.Model):
     praiser = models.ForeignKey(User, related_name='from+')#赞的人
     praised = models.ForeignKey(Share, related_name='to')#赞的动态
     edit_time = models.DateTimeField(auto_now=True)#编辑的时间
+    
  

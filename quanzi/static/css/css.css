@@ -1,0 +1,7 @@
+#wintq { width:auto; height:54px; line-height:54px; position:fixed; left:0; top:0; z-index:999; font-family:"微软雅黑"}
+#wintq .tqLeft { width:45px; height:54px; float:left; background:url(images/layer.png) no-repeat -5px 0px;}
+#wintq .tqLeft2 { width:45px; height:54px; float:left; background:url(images/layer.png) no-repeat -5px -54px;}
+#wintq .tqLeft3 { width:45px; height:54px; float:left; background:url(images/layer.png) no-repeat -5px -108px;}
+#wintq .tqCenter { width:auto; height:54px; line-height:52px; padding-right:15px; float:left; background:url(images/layer.png) repeat-x left bottom; font-size:15px; text-align:left; text-indent:15px; color:#333; font-weight:900}
+#wintq .tqRight { width:6px; height:54px; float:left; background:url(images/layer.png) no-repeat left 0px;}
+#zbody { position:fixed; left:0; top:0; z-index:998; background:#fff; opacity:0.4; filter:Alpha(opacity=40);}
